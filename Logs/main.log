@@ -1,0 +1,514 @@
+2026-06-24 13:20:58.146 DEBUG [redis] CMD SET session:n7xtmmcdifq EX 3600 — OK (5ms)
+2026-06-24 13:20:58.226 WARN  [devmind-api] c.d.api.RateLimitFilter : Rate limit exceeded for IP 69.147.127.239 (100 req/min)
+2026-06-24 13:20:58.461 WARN  [docker] Slow container stop (>10s): devmind-worker — sending SIGKILL
+2026-06-24 13:20:58.570 DEBUG [kafka] Produced message to devmind-pipeline-updates: key=agent_run_2003 size=912B lag=0
+2026-06-24 13:20:58.643 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:20:58.713 INFO  [devmind-api,6JQDN51KRRT,PVYCMX2W] c.d.security.JwtFilter : Token validated for user aman@devmind.io (exp: 2026-06-24T14:21:57.851Z)
+2026-06-24 13:20:58.747 DEBUG [langchain] Tool call: prometheus_query args={"namespace":"devmind","tail":100}
+2026-06-24 13:20:58.829 WARN  [github-actions] go test ./... — 2 tests skipped (no DB connection)
+2026-06-24 13:20:58.985 INFO  [redis] BGSAVE triggered — RDB snapshot started
+2026-06-24 13:20:59.033 INFO  [nginx] Worker process 5848 started
+2026-06-24 13:20:59.041 DEBUG [redis] CMD SET session:wl95x3n3rcr EX 3600 — OK (2ms)
+2026-06-24 13:20:59.355 DEBUG [postgres] Index scan on agent_runs using idx_agent_runs_user_id (cost=28.60)
+2026-06-24 13:20:59.840 WARN  [prometheus] Slow scrape: target http://devmind-worker:9090/metrics took 11139ms (>5s)
+2026-06-24 13:20:59.945 DEBUG [redis] CMD DEL session:dia8odub7kh — 1 key removed
+2026-06-24 13:21:00.202 WARN  [langchain] Context window at 90% capacity — summarizing older messages
+2026-06-24 13:21:00.443 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (100ms)
+2026-06-24 13:21:00.483 DEBUG [devmind-api,I3PX5BSGMV,HRPZL38Z] c.d.service.MCPService : Executing MCP tool: docker_logs (timeout=30s)
+2026-06-24 13:21:00.540 DEBUG [redis] CMD GET cache:pipeline:217 — HIT (1ms)
+2026-06-24 13:21:00.616 INFO  [docker] Container devmind-api started successfully (ID: yvo6tw6opj)
+2026-06-24 13:21:00.902 WARN  [kafka] Consumer lag on devmind-events: 1799 messages behind
+2026-06-24 13:21:00.905 WARN  [redis] Slow log entry: HGETALL devmind:agents:state took 408ms
+2026-06-24 13:21:00.963 WARN  [prometheus] Alert firing: HighErrorRate — devmind-api error rate 7.1% > 5% for 5m
+2026-06-24 13:21:01.050 WARN  [github-actions] go test ./... — 2 tests skipped (no DB connection)
+2026-06-24 13:21:01.328 INFO  [nginx] Access: 82.88.97.244 "GET /metrics HTTP/1.1" 200 3053
+2026-06-24 13:21:01.350 INFO  [docker] Container devmind-api started successfully (ID: 952498sobjw)
+2026-06-24 13:21:01.381 INFO  [devmind-api,9O1LT23CRQU,IMF0JGWP] c.d.api.AgentController : POST /api/v1/agents/run — agent=LangChainAgent latency=294ms
+2026-06-24 13:21:01.385 INFO  [kafka] Topic devmind-events created (partitions: 6, replication-factor: 3)
+2026-06-24 13:21:01.466 DEBUG [redis] CMD DEL session:d8e8esdrgqp — 1 key removed
+2026-06-24 13:21:01.738 ERROR [k8s] Readiness probe failed for devmind-ui-6f4d-zr1m: connection refused on port 8080
+2026-06-24 13:21:01.748 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.26.0.0/16)
+2026-06-24 13:21:01.793 INFO  [redis] BGSAVE triggered — RDB snapshot started
+2026-06-24 13:21:01.896 ERROR [langchain] Agent K8sAgent failed: anthropic.APIError rate_limit_exceeded — backing off 24s
+2026-06-24 13:21:01.968 DEBUG [prometheus] devmind_active_agents_total 3
+2026-06-24 13:21:01.989 WARN  [kafka] Consumer lag on devmind-pipeline-updates: 962 messages behind
+2026-06-24 13:21:02.031 DEBUG [langchain] Prompt tokens: 831 | Completion tokens: 430 | Total: 1772
+2026-06-24 13:21:02.168 ERROR [github-actions] Step: Docker build — FAILED: RUN go build returned exit code 2
+2026-06-24 13:21:02.400 INFO  [docker] Image prune complete: removed 11 dangling images (freed 514MB)
+2026-06-24 13:21:02.415 INFO  [github-actions] Step: kubectl apply -f k8s/ ✓ — deployment.apps/devmind-api configured
+2026-06-24 13:21:02.770 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:02.897 INFO  [redis] BGSAVE triggered — RDB snapshot started
+2026-06-24 13:21:03.135 INFO  [github-actions] Job deploy: Completed in 159s — SUCCESS
+2026-06-24 13:21:03.192 ERROR [langchain] Agent LangChainAgent failed: anthropic.APIError rate_limit_exceeded — backing off 21s
+2026-06-24 13:21:03.455 WARN  [github-actions] Job test: 5 flaky test(s) detected — retrying
+2026-06-24 13:21:03.480 WARN  [langchain] Context window at 77% capacity — summarizing older messages
+2026-06-24 13:21:03.581 DEBUG [redis] CMD DEL session:7qjja9xji92 — 1 key removed
+2026-06-24 13:21:03.718 DEBUG [prometheus] devmind_jvm_heap_used_bytes 643825664
+2026-06-24 13:21:03.719 INFO  [docker] Image prune complete: removed 4 dangling images (freed 606MB)
+2026-06-24 13:21:03.873 INFO  [k8s] Pod devmind-api-7d8f9c-xk2p in namespace devmind: Running (node: k8s-worker-2)
+2026-06-24 13:21:03.965 DEBUG [postgres] Index scan on agent_runs using idx_agent_runs_user_id (cost=32.50)
+2026-06-24 13:21:04.037 INFO  [docker] Health check passed for devmind-api: GET /api/v1/health => 200 (135ms)
+2026-06-24 13:21:04.140 DEBUG [redis] CMD SET session:atimebok4do EX 3600 — OK (3ms)
+2026-06-24 13:21:04.399 INFO  [github-actions] Workflow run #105 completed: success
+2026-06-24 13:21:04.581 ERROR [postgres] Deadlock detected on relation pipelines (PID 2105 vs 2007)
+2026-06-24 13:21:04.734 INFO  [postgres] Checkpoint complete: wrote 123 buffers (2.7%)
+2026-06-24 13:21:05.047 INFO  [devmind-api] o.s.b.SpringApplication : Started DevMindApplication in 4.5s (JVM running for 6.0s)
+2026-06-24 13:21:05.267 WARN  [nginx] 3 upstream(s) unavailable, using backup
+2026-06-24 13:21:05.308 INFO  [github-actions] Job deploy: Completed in 153s — SUCCESS
+2026-06-24 13:21:05.317 DEBUG [prometheus] devmind_active_agents_total 8
+2026-06-24 13:21:05.452 DEBUG [prometheus] devmind_agent_execution_duration_seconds{agent="langchain"} 2.70
+2026-06-24 13:21:05.467 WARN  [postgres] Connection pool near limit: 90/100 connections active
+2026-06-24 13:21:05.624 DEBUG [docker] Forwarding port 8080->8080 for container devmind-api
+2026-06-24 13:21:05.832 DEBUG [kafka] Produced message to devmind-alerts: key=agent_run_843 size=426B lag=0
+2026-06-24 13:21:05.885 WARN  [devmind-api] o.h.engine.jdbc.spi.SqlExceptionHelper : SQL Warning Code: 1292, SQLState: 22007 — truncated incorrect DOUBLE value
+2026-06-24 13:21:06.069 DEBUG [kafka] Heartbeat sent to coordinator (group: devmind-workers, interval: 3000ms)
+2026-06-24 13:21:06.089 ERROR [kafka] Failed to produce to devmind-pipeline-updates: org.apache.kafka.common.errors.NotLeaderOrFollowerException
+2026-06-24 13:21:06.177 INFO  [devmind-api,W9SC8V7YV3K,LLABSO9A] c.d.api.AgentController : POST /api/v1/agents/run — agent=LangChainAgent latency=432ms
+2026-06-24 13:21:06.416 WARN  [nginx] 4 upstream(s) unavailable, using backup
+2026-06-24 13:21:06.498 INFO  [github-actions] Step: kubectl apply -f k8s/ ✓ — deployment.apps/devmind-api configured
+2026-06-24 13:21:06.687 INFO  [kafka] Topic devmind-agent-runs created (partitions: 6, replication-factor: 3)
+2026-06-24 13:21:06.818 INFO  [docker] Pulling image devmind/api:v2.1.15 from registry.hub.docker.com
+2026-06-24 13:21:06.927 DEBUG [prometheus] devmind_jvm_heap_used_bytes 642777088
+2026-06-24 13:21:07.004 ERROR [devmind-api] c.d.service.KafkaProducerService : Failed to publish to topic devmind-events: Broker not available
+2026-06-24 13:21:07.328 INFO  [docker] Container devmind-api started successfully (ID: qv2sx0wfv9)
+2026-06-24 13:21:07.393 WARN  [kafka] Consumer lag on devmind-events: 1491 messages behind
+2026-06-24 13:21:07.563 DEBUG [devmind-api,QIRNPMR1VE,NSUXYHCI] c.d.service.MCPService : Executing MCP tool: docker_logs (timeout=30s)
+2026-06-24 13:21:07.777 INFO  [prometheus] TSDB compaction complete: 237 blocks merged
+2026-06-24 13:21:07.800 INFO  [github-actions] Step: go build ./... ✓ (42s)
+2026-06-24 13:21:07.852 WARN  [redis] Memory usage: 78% (7.30GB / 1GB maxmemory)
+2026-06-24 13:21:07.901 WARN  [github-actions] go test ./... — 2 tests skipped (no DB connection)
+2026-06-24 13:21:08.183 INFO  [langchain] MCP server mcp-docker connected (tools available: 10)
+2026-06-24 13:21:08.345 INFO  [kafka] Broker kafka:9092 elected as leader for devmind-events-0
+2026-06-24 13:21:08.452 INFO  [nginx] Access: 46.169.125.208 "GET /metrics HTTP/1.1" 200 3511
+2026-06-24 13:21:08.490 WARN  [postgres] Connection pool near limit: 99/100 connections active
+2026-06-24 13:21:08.711 DEBUG [kafka] Heartbeat sent to coordinator (group: devmind-workers, interval: 3000ms)
+2026-06-24 13:21:08.722 INFO  [github-actions] Step: go build ./... ✓ (50s)
+2026-06-24 13:21:08.808 WARN  [github-actions] go test ./... — 1 tests skipped (no DB connection)
+2026-06-24 13:21:08.927 WARN  [redis] Memory usage: 71% (8.19GB / 1GB maxmemory)
+2026-06-24 13:21:09.100 DEBUG [langchain] Prompt tokens: 877 | Completion tokens: 310 | Total: 784
+2026-06-24 13:21:09.195 INFO  [devmind-api,0V71IXP7M7TF,1SHEDXXW] c.d.security.JwtFilter : Token validated for user aman@devmind.io (exp: 2026-06-24T14:21:57.854Z)
+2026-06-24 13:21:09.233 INFO  [prometheus] Scraping target http://devmind-api:8080/actuator/prometheus (849ms)
+2026-06-24 13:21:09.311 WARN  [postgres] Connection pool near limit: 98/100 connections active
+2026-06-24 13:21:09.372 INFO  [langchain] Tool github_actions_status completed in 459ms — tokens: 455
+2026-06-24 13:21:09.457 INFO  [postgres] Checkpoint complete: wrote 154 buffers (7.6%)
+2026-06-24 13:21:09.480 DEBUG [devmind-api,WB88ZKIW4O9,L4K6WRTO] c.d.service.MCPService : Executing MCP tool: docker_logs (timeout=30s)
+2026-06-24 13:21:09.557 WARN  [github-actions] Job test: 5 flaky test(s) detected — retrying
+2026-06-24 13:21:09.562 INFO  [kafka] Topic devmind-agent-runs created (partitions: 2, replication-factor: 3)
+2026-06-24 13:21:09.909 INFO  [docker] Image prune complete: removed 8 dangling images (freed 272MB)
+2026-06-24 13:21:09.925 INFO  [k8s] Deployment devmind-api scaled to 4 replicas
+2026-06-24 13:21:10.097 INFO  [kafka] Broker kafka:9092 elected as leader for devmind-alerts-3
+2026-06-24 13:21:10.225 DEBUG [redis] CMD SET session:m6b673lhmks EX 3600 — OK (3ms)
+2026-06-24 13:21:10.293 INFO  [prometheus] Rule evaluation complete: 19 rules in 618ms
+2026-06-24 13:21:10.422 WARN  [redis] Memory usage: 77% (8.60GB / 1GB maxmemory)
+2026-06-24 13:21:10.427 WARN  [docker] Container devmind-worker memory usage at 89% (813MB / 1024MB)
+2026-06-24 13:21:10.663 INFO  [docker] Pulling image devmind/api:v2.1.3 from registry.hub.docker.com
+2026-06-24 13:21:10.873 INFO  [postgres] Checkpoint complete: wrote 137 buffers (6.1%)
+2026-06-24 13:21:11.055 INFO  [redis] BGSAVE triggered — RDB snapshot started
+2026-06-24 13:21:11.207 INFO  [k8s] Service devmind-api ClusterIP assigned: 10.104.247.229
+2026-06-24 13:21:11.348 ERROR [docker] Container devmind-mcp exited with code 1 — OOMKilled (memory limit exceeded)
+2026-06-24 13:21:11.821 DEBUG [redis] CMD DEL session:pu5wl7rjlk — 1 key removed
+2026-06-24 13:21:11.880 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.30.0.0/16)
+2026-06-24 13:21:12.061 DEBUG [devmind-api,LW77X1ZYZNG,XEU70VM0] c.d.service.MCPService : Executing MCP tool: docker_logs (timeout=30s)
+2026-06-24 13:21:12.257 INFO  [nginx] Worker process 2850 started
+2026-06-24 13:21:12.345 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:12.547 INFO  [nginx] SSL handshake completed for 171.151.169.72 (TLSv1.3, cipher: TLS_AES_256_GCM_SHA384)
+2026-06-24 13:21:12.823 INFO  [kafka] Topic devmind-events created (partitions: 5, replication-factor: 3)
+2026-06-24 13:21:12.865 INFO  [redis] Client connected: devmind-api@127.0.0.1:30989 (total: 43)
+2026-06-24 13:21:13.234 INFO  [nginx] Worker process 8339 started
+2026-06-24 13:21:13.256 INFO  [docker] Pulling image devmind/api:v3.1.18 from registry.hub.docker.com
+2026-06-24 13:21:13.678 WARN  [k8s] Node k8s-worker-3 disk pressure: 89% used
+2026-06-24 13:21:13.742 INFO  [postgres] Checkpoint complete: wrote 119 buffers (1.4%)
+2026-06-24 13:21:13.892 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 452192)
+2026-06-24 13:21:14.065 DEBUG [langchain] Prompt tokens: 555 | Completion tokens: 666 | Total: 1024
+2026-06-24 13:21:14.096 WARN  [kafka] Consumer lag on devmind-pipeline-updates: 972 messages behind
+2026-06-24 13:21:14.120 WARN  [nginx] 1 upstream(s) unavailable, using backup
+2026-06-24 13:21:14.277 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.29.0.0/16)
+2026-06-24 13:21:14.448 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 2334)
+2026-06-24 13:21:14.545 INFO  [redis] Client connected: devmind-api@127.0.0.1:57533 (total: 38)
+2026-06-24 13:21:14.872 INFO  [docker] Volume /var/lib/devmind/data mounted at /data (7GB used)
+2026-06-24 13:21:14.920 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 17, 158ms)
+2026-06-24 13:21:15.005 WARN  [nginx] 2 upstream(s) unavailable, using backup
+2026-06-24 13:21:15.204 ERROR [kafka] Failed to produce to devmind-events: org.apache.kafka.common.errors.NotLeaderOrFollowerException
+2026-06-24 13:21:15.305 ERROR [docker] Container devmind-mcp exited with code 1 — OOMKilled (memory limit exceeded)
+2026-06-24 13:21:15.520 INFO  [prometheus] TSDB compaction complete: 123 blocks merged
+2026-06-24 13:21:15.523 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.29.0.0/16)
+2026-06-24 13:21:15.568 WARN  [k8s] ImagePullBackOff for devmind-worker-5b6c-nl9q: rate limit exceeded (docker.io)
+2026-06-24 13:21:15.652 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 2, 144ms)
+2026-06-24 13:21:15.771 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:15.884 INFO  [langchain] Tool docker_logs completed in 788ms — tokens: 302
+2026-06-24 13:21:16.047 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.18.0.0/16)
+2026-06-24 13:21:16.084 WARN  [redis] Memory usage: 86% (7.10GB / 1GB maxmemory)
+2026-06-24 13:21:16.339 INFO  [prometheus] Scraping target http://devmind-api:8080/actuator/prometheus (320ms)
+2026-06-24 13:21:16.443 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 875213)
+2026-06-24 13:21:16.517 INFO  [langchain] Pipeline devmind-monitor completed successfully (12 steps, 15s)
+2026-06-24 13:21:16.523 DEBUG [redis] CMD SET session:kut22rdtwk EX 3600 — OK (5ms)
+2026-06-24 13:21:16.574 DEBUG [redis] CMD DEL session:iuzr5t795qa — 1 key removed
+2026-06-24 13:21:16.766 INFO  [langchain] Pipeline devmind-monitor completed successfully (6 steps, 5s)
+2026-06-24 13:21:17.091 DEBUG [docker] Forwarding port 8080->8080 for container devmind-api
+2026-06-24 13:21:17.451 INFO  [postgres] Checkpoint complete: wrote 129 buffers (4.3%)
+2026-06-24 13:21:17.574 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:17.575 INFO  [prometheus] Rule evaluation complete: 26 rules in 566ms
+2026-06-24 13:21:17.731 INFO  [github-actions] Workflow run #703 completed: success
+2026-06-24 13:21:18.080 WARN  [github-actions] Job test: 3 flaky test(s) detected — retrying
+2026-06-24 13:21:18.127 DEBUG [prometheus] devmind_jvm_heap_used_bytes 347078656
+2026-06-24 13:21:18.133 WARN  [prometheus] Slow scrape: target http://devmind-worker:9090/metrics took 9608ms (>5s)
+2026-06-24 13:21:18.215 INFO  [kafka] Consumer group devmind-workers joined topic devmind-agent-runs (partition: 0, offset: 19895)
+2026-06-24 13:21:18.268 INFO  [prometheus] Scraping target http://devmind-api:8080/actuator/prometheus (441ms)
+2026-06-24 13:21:18.356 INFO  [docker] Volume /var/lib/devmind/data mounted at /data (3GB used)
+2026-06-24 13:21:18.456 INFO  [github-actions] Job deploy: Completed in 68s — SUCCESS
+2026-06-24 13:21:18.809 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:18.833 INFO  [kafka] Topic devmind-alerts created (partitions: 7, replication-factor: 3)
+2026-06-24 13:21:19.025 DEBUG [kafka] Heartbeat sent to coordinator (group: devmind-workers, interval: 3000ms)
+2026-06-24 13:21:19.222 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:19.366 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
+2026-06-24 13:21:19.450 WARN  [docker] Container devmind-worker memory usage at 82% (832MB / 1024MB)
+2026-06-24 13:21:19.581 DEBUG [k8s] Liveness probe OK for devmind-worker-5b6c-nl9q (http /healthz 200 261ms)
+2026-06-24 13:21:19.662 WARN  [nginx] 2 upstream(s) unavailable, using backup
+2026-06-24 13:21:19.808 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:19.917 WARN  [redis] Memory usage: 75% (8.25GB / 1GB maxmemory)
+2026-06-24 13:21:20.018 ERROR [kafka] Failed to produce to devmind-agent-runs: org.apache.kafka.common.errors.NotLeaderOrFollowerException
+2026-06-24 13:21:20.365 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (877ms)
+2026-06-24 13:21:20.485 INFO  [docker] Image prune complete: removed 7 dangling images (freed 334MB)
+2026-06-24 13:21:20.501 WARN  [kafka] Rebalance triggered for group devmind-workers (4 members)
+2026-06-24 13:21:20.560 INFO  [langchain] Agent MonitorAgent invoked — model: claude-sonnet-4-6 (temp: 0.2)
+2026-06-24 13:21:20.568 INFO  [devmind-api,SAN2MYS4KXL,86JXT7VR] c.d.api.AgentController : POST /api/v1/agents/run — agent=LangChainAgent latency=579ms
+2026-06-24 13:21:20.729 ERROR [k8s] Readiness probe failed for devmind-api-7d8f9c-xk2p: connection refused on port 8080
+2026-06-24 13:21:20.731 DEBUG [redis] CMD SET session:dqvmmhl9kvp EX 3600 — OK (5ms)
+2026-06-24 13:21:20.751 WARN  [k8s] Node k8s-worker-1 disk pressure: 87% used
+2026-06-24 13:21:20.757 WARN  [docker] Slow container stop (>10s): devmind-worker — sending SIGKILL
+2026-06-24 13:21:20.779 WARN  [prometheus] Alert firing: HighErrorRate — devmind-api error rate 6.3% > 5% for 5m
+2026-06-24 13:21:20.836 INFO  [docker] Container devmind-api started successfully (ID: 6kaw4zr8uv6)
+2026-06-24 13:21:20.947 INFO  [kafka] Consumer group devmind-workers joined topic devmind-events (partition: 0, offset: 17522)
+2026-06-24 13:21:20.998 INFO  [k8s] Pod devmind-mcp-4a2b-qw8v in namespace devmind: Running (node: k8s-worker-3)
+2026-06-24 13:21:21.127 INFO  [langchain] Agent MonitorAgent invoked — model: claude-sonnet-4-6 (temp: 0.2)
+2026-06-24 13:21:21.147 INFO  [github-actions] Workflow run #534 completed: success
+2026-06-24 13:21:21.379 INFO  [docker] Container devmind-api started successfully (ID: ig3lk7m9dpf)
+2026-06-24 13:21:21.419 WARN  [github-actions] go test ./... — 1 tests skipped (no DB connection)
+2026-06-24 13:21:21.447 WARN [nginx] 36.140.251.108 - - "GET /api/v1/tools/k8s HTTP/1.1" 401 3367 "-" "devmind-client/1.0"
+2026-06-24 13:21:21.929 INFO  [prometheus] TSDB compaction complete: 109 blocks merged
+2026-06-24 13:21:22.557 INFO  [docker] Volume /var/lib/devmind/data mounted at /data (5GB used)
+2026-06-24 13:21:22.562 DEBUG [redis] CMD GET cache:pipeline:320 — HIT (1ms)
+2026-06-24 13:21:22.621 WARN  [docker] Slow container stop (>10s): devmind-worker — sending SIGKILL
+2026-06-24 13:21:22.644 WARN  [kafka] Consumer lag on devmind-pipeline-updates: 4745 messages behind
+2026-06-24 13:21:22.703 DEBUG [redis] CMD SET session:3k4bqxxpi6g EX 3600 — OK (4ms)
+2026-06-24 13:21:22.728 INFO  [github-actions] Workflow run #771 completed: success
+2026-06-24 13:21:22.763 INFO  [github-actions] Step: Setup Go 1.22 — ✓ cached (3s)
+2026-06-24 13:21:22.938 ERROR [postgres] Deadlock detected on relation pipelines (PID 2620 vs 6285)
+2026-06-24 13:21:23.038 DEBUG [redis] CMD SET session:k8ei94q4cnr EX 3600 — OK (3ms)
+2026-06-24 13:21:23.109 WARN  [kafka] Consumer lag on devmind-alerts: 3610 messages behind
+2026-06-24 13:21:23.148 INFO  [devmind-api] o.s.b.SpringApplication : Started DevMindApplication in 2.9s (JVM running for 8.7s)
+2026-06-24 13:21:23.232 INFO  [kafka] Broker kafka:9092 elected as leader for devmind-agent-runs-1
+2026-06-24 13:21:23.339 WARN  [redis] Evicting keys (maxmemory-policy: allkeys-lru): 87 keys evicted
+2026-06-24 13:21:23.428 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:23.556 INFO  [postgres] Autovacuum: table devmind_db.agent_runs — 1536 rows removed
+2026-06-24 13:21:23.835 INFO  [prometheus] Rule evaluation complete: 23 rules in 275ms
+2026-06-24 13:21:23.888 ERROR [docker] Container devmind-mcp exited with code 1 — OOMKilled (memory limit exceeded)
+2026-06-24 13:21:23.941 ERROR [github-actions] Step: Docker build — FAILED: RUN go build returned exit code 2
+2026-06-24 13:21:23.997 INFO  [prometheus] Rule evaluation complete: 14 rules in 348ms
+2026-06-24 13:21:24.082 WARN  [devmind-api] c.d.api.RateLimitFilter : Rate limit exceeded for IP 93.235.138.26 (100 req/min)
+2026-06-24 13:21:24.272 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 249994)
+2026-06-24 13:21:24.481 WARN  [github-actions] Job test: 5 flaky test(s) detected — retrying
+2026-06-24 13:21:24.554 INFO  [github-actions] Step: Setup Go 1.22 — ✓ cached (2s)
+2026-06-24 13:21:24.578 DEBUG [devmind-api] c.d.config.RedisConfig : Redis connection pool: active=8, idle=3, max=20
+2026-06-24 13:21:24.698 INFO  [redis] BGSAVE triggered — RDB snapshot started
+2026-06-24 13:21:24.719 INFO  [nginx] Access: 139.131.224.83 "GET /metrics HTTP/1.1" 200 1732
+2026-06-24 13:21:24.742 DEBUG [langchain] Tool call: slack_notify args={"namespace":"devmind","tail":100}
+2026-06-24 13:21:24.834 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 1382)
+2026-06-24 13:21:25.038 INFO  [k8s] ConfigMap devmind-config updated — rolling restart triggered
+2026-06-24 13:21:25.095 DEBUG [prometheus] devmind_agent_execution_duration_seconds{agent="langchain"} 2.70
+2026-06-24 13:21:25.159 INFO  [github-actions] Step: kubectl apply -f k8s/ ✓ — deployment.apps/devmind-api configured
+2026-06-24 13:21:25.163 INFO  [k8s] HPA: scaling devmind-worker from 2 to 6 (CPU: 93%)
+2026-06-24 13:21:25.240 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 547411)
+2026-06-24 13:21:25.381 INFO  [prometheus] TSDB compaction complete: 302 blocks merged
+2026-06-24 13:21:25.396 WARN  [langchain] Context window at 77% capacity — summarizing older messages
+2026-06-24 13:21:25.535 INFO  [k8s] Ingress devmind-ingress updated (TLS termination, host: api.devmind.io)
+2026-06-24 13:21:25.849 INFO  [docker] Health check passed for devmind-api: GET /api/v1/health => 200 (324ms)
+2026-06-24 13:21:26.016 INFO  [langchain] LangGraph node "analyze_logs" → "generate_fix" transition (step 8)
+2026-06-24 13:21:26.124 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 2188)
+2026-06-24 13:21:26.225 DEBUG [prometheus] devmind_jvm_heap_used_bytes 310378496
+2026-06-24 13:21:26.270 INFO  [langchain] LangGraph node "analyze_logs" → "generate_fix" transition (step 6)
+2026-06-24 13:21:26.371 DEBUG [langchain] Tool call: docker_logs args={"namespace":"devmind","tail":100}
+2026-06-24 13:21:26.376 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 45, 498ms)
+2026-06-24 13:21:26.380 DEBUG [redis] CMD DEL session:pwuqxt3nhf — 1 key removed
+2026-06-24 13:21:26.541 DEBUG [redis] CMD GET cache:pipeline:771 — HIT (2ms)
+2026-06-24 13:21:26.753 DEBUG [prometheus] devmind_jvm_heap_used_bytes 633339904
+2026-06-24 13:21:26.794 DEBUG [prometheus] devmind_api_requests_total{method="POST",status="200"} 4000
+2026-06-24 13:21:27.213 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 1684)
+2026-06-24 13:21:27.230 INFO  [kafka] Broker kafka:9092 elected as leader for devmind-alerts-0
+2026-06-24 13:21:27.357 INFO  [docker] Image prune complete: removed 5 dangling images (freed 792MB)
+2026-06-24 13:21:27.430 ERROR [k8s] Readiness probe failed for devmind-worker-5b6c-nl9q: connection refused on port 8080
+2026-06-24 13:21:27.813 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (60ms)
+2026-06-24 13:21:27.862 INFO  [github-actions] Job deploy: Completed in 72s — SUCCESS
+2026-06-24 13:21:27.877 DEBUG [kafka] Heartbeat sent to coordinator (group: devmind-workers, interval: 3000ms)
+2026-06-24 13:21:27.980 INFO  [langchain] Tool docker_logs completed in 121ms — tokens: 541
+2026-06-24 13:21:28.085 INFO  [devmind-api] o.s.b.SpringApplication : Started DevMindApplication in 2.5s (JVM running for 9.0s)
+2026-06-24 13:21:28.454 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 243690)
+2026-06-24 13:21:28.551 WARN  [kafka] Rebalance triggered for group devmind-workers (4 members)
+2026-06-24 13:21:28.822 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:28.881 ERROR [kafka] Failed to produce to devmind-events: org.apache.kafka.common.errors.NotLeaderOrFollowerException
+2026-06-24 13:21:29.184 DEBUG [kafka] Produced message to devmind-agent-runs: key=agent_run_498 size=1767B lag=0
+2026-06-24 13:21:29.293 INFO  [prometheus] Rule evaluation complete: 30 rules in 434ms
+2026-06-24 13:21:29.587 DEBUG [devmind-api] c.d.config.RedisConfig : Redis connection pool: active=4, idle=3, max=20
+2026-06-24 13:21:29.628 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (667ms)
+2026-06-24 13:21:29.641 WARN  [langchain] Context window at 90% capacity — summarizing older messages
+2026-06-24 13:21:29.735 INFO  [langchain] Agent AlertAgent invoked — model: claude-sonnet-4-6 (temp: 0.2)
+2026-06-24 13:21:29.979 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:30.087 WARN  [github-actions] go test ./... — 2 tests skipped (no DB connection)
+2026-06-24 13:21:30.255 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
+2026-06-24 13:21:30.281 INFO  [github-actions] Step: Checkout — actions/checkout@v4 ✓ (7s)
+2026-06-24 13:21:30.577 INFO  [devmind-api,SM6RK4XVG9F,V5JOZB0H] c.d.repo.PipelineRepository : Query executed in 539ms [SELECT * FROM pipelines WHERE status=?]
+2026-06-24 13:21:30.589 INFO  [devmind-api,Z2RO86EIFLJ,RT4A1GDU] c.d.repo.PipelineRepository : Query executed in 756ms [SELECT * FROM pipelines WHERE status=?]
+2026-06-24 13:21:30.631 ERROR [k8s] Readiness probe failed for devmind-api-7d8f9c-xk2p: connection refused on port 8080
+2026-06-24 13:21:30.656 INFO  [langchain] Memory checkpoint saved for agent AlertAgent (state size: 12KB)
+2026-06-24 13:21:30.677 INFO  [github-actions] Step: Push image devmind/api:a4u61358 ✓ (59s)
+2026-06-24 13:21:30.732 WARN  [langchain] Agent AlertAgent retrying tool call (attempt 2/3): tool timeout after 30s
+2026-06-24 13:21:30.841 INFO  [prometheus] Rule evaluation complete: 19 rules in 871ms
+2026-06-24 13:21:30.866 INFO  [github-actions] Workflow devmind-ci triggered (push to main by amandx36)
+2026-06-24 13:21:31.002 WARN  [k8s] ImagePullBackOff for devmind-api-7d8f9c-xk2p: rate limit exceeded (docker.io)
+2026-06-24 13:21:31.079 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 5556)
+2026-06-24 13:21:31.214 INFO  [github-actions] Job deploy: Completed in 145s — SUCCESS
+2026-06-24 13:21:31.272 INFO  [langchain] Memory checkpoint saved for agent K8sAgent (state size: 6KB)
+2026-06-24 13:21:31.509 INFO  [kafka] Topic devmind-agent-runs created (partitions: 4, replication-factor: 3)
+2026-06-24 13:21:31.579 DEBUG [redis] CMD DEL session:b3jr6yq0d4j — 1 key removed
+2026-06-24 13:21:31.840 INFO  [langchain] Memory checkpoint saved for agent K8sAgent (state size: 20KB)
+2026-06-24 13:21:32.012 INFO  [postgres] Autovacuum: table devmind_db.agent_runs — 2058 rows removed
+2026-06-24 13:21:32.208 INFO  [docker] Pulling image devmind/api:v3.9.8 from registry.hub.docker.com
+2026-06-24 13:21:32.250 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
+2026-06-24 13:21:32.347 INFO  [k8s] Pod devmind-worker-5b6c-nl9q in namespace devmind: Running (node: k8s-worker-3)
+2026-06-24 13:21:32.406 ERROR [k8s] PVC devmind-data-pvc pending: no PersistentVolume available
+2026-06-24 13:21:32.495 WARN  [k8s] Node k8s-worker-2 disk pressure: 94% used
+2026-06-24 13:21:32.517 WARN  [k8s] Pod devmind-ui-6f4d-zr1m CrashLoopBackOff: restarted 3 times in last 10m
+2026-06-24 13:21:32.753 WARN  [k8s] ImagePullBackOff for devmind-worker-5b6c-nl9q: rate limit exceeded (docker.io)
+2026-06-24 13:21:32.777 INFO  [docker] Image prune complete: removed 9 dangling images (freed 402MB)
+2026-06-24 13:21:32.786 DEBUG [kafka] Heartbeat sent to coordinator (group: devmind-workers, interval: 3000ms)
+2026-06-24 13:21:32.881 INFO  [docker] Volume /var/lib/devmind/data mounted at /data (3GB used)
+2026-06-24 13:21:33.453 DEBUG [k8s] Liveness probe OK for devmind-ui-6f4d-zr1m (http /healthz 200 162ms)
+2026-06-24 13:21:33.469 INFO  [prometheus] Rule evaluation complete: 21 rules in 823ms
+2026-06-24 13:21:33.667 INFO  [langchain] Tool kubectl_get_pods completed in 306ms — tokens: 609
+2026-06-24 13:21:33.705 DEBUG [prometheus] devmind_api_requests_total{method="POST",status="200"} 2094
+2026-06-24 13:21:33.741 WARN  [k8s] ImagePullBackOff for devmind-api-7d8f9c-xk2p: rate limit exceeded (docker.io)
+2026-06-24 13:21:34.107 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:34.338 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
+2026-06-24 13:21:34.365 WARN  [prometheus] Alert firing: HighErrorRate — devmind-api error rate 7.5% > 5% for 5m
+2026-06-24 13:21:34.367 INFO  [k8s] Service devmind-api ClusterIP assigned: 10.105.172.203
+2026-06-24 13:21:34.541 INFO  [docker] Volume /var/lib/devmind/data mounted at /data (7GB used)
+2026-06-24 13:21:34.608 INFO  [prometheus] Rule evaluation complete: 28 rules in 401ms
+2026-06-24 13:21:34.654 INFO  [k8s] ConfigMap devmind-config updated — rolling restart triggered
+2026-06-24 13:21:35.076 INFO  [github-actions] Step: Push image devmind/api:zm79sb1l ✓ (24s)
+2026-06-24 13:21:35.275 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:35.464 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 376652)
+2026-06-24 13:21:35.543 INFO  [langchain] MCP server mcp-docker connected (tools available: 15)
+2026-06-24 13:21:35.553 INFO  [docker] Pulling image devmind/api:v3.3.9 from registry.hub.docker.com
+2026-06-24 13:21:35.639 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 8727)
+2026-06-24 13:21:35.679 INFO  [langchain] LangGraph node "analyze_logs" → "generate_fix" transition (step 3)
+2026-06-24 13:21:35.903 ERROR [docker] Container devmind-mcp exited with code 1 — OOMKilled (memory limit exceeded)
+2026-06-24 13:21:35.966 WARN  [prometheus] Alert firing: HighErrorRate — devmind-api error rate 7.5% > 5% for 5m
+2026-06-24 13:21:36.108 INFO  [k8s] ConfigMap devmind-config updated — rolling restart triggered
+2026-06-24 13:21:36.111 WARN  [postgres] Slow query (3453ms): SELECT * FROM agent_runs WHERE created_at > NOW() - INTERVAL '7 days'
+2026-06-24 13:21:36.225 INFO  [github-actions] Step: Setup Go 1.22 — ✓ cached (3s)
+2026-06-24 13:21:36.255 INFO  [docker] Container devmind-api started successfully (ID: 7j182q42p3x)
+2026-06-24 13:21:36.295 INFO [nginx] 57.102.153.56 - - "PUT /api/v1/tools/k8s HTTP/1.1" 201 1501 "-" "devmind-client/1.0"
+2026-06-24 13:21:36.376 INFO  [github-actions] Step: kubectl apply -f k8s/ ✓ — deployment.apps/devmind-api configured
+2026-06-24 13:21:36.388 INFO  [k8s] Pod devmind-ui-6f4d-zr1m in namespace devmind: Running (node: k8s-worker-2)
+2026-06-24 13:21:36.393 INFO  [k8s] Service devmind-api ClusterIP assigned: 10.104.64.178
+2026-06-24 13:21:36.854 INFO  [github-actions] Workflow devmind-ci triggered (push to main by amandx36)
+2026-06-24 13:21:37.382 INFO  [langchain] LangGraph node "analyze_logs" → "generate_fix" transition (step 3)
+2026-06-24 13:21:37.429 ERROR [k8s] Readiness probe failed for devmind-api-7d8f9c-xk2p: connection refused on port 8080
+2026-06-24 13:21:37.759 ERROR [k8s] Readiness probe failed for devmind-worker-5b6c-nl9q: connection refused on port 8080
+2026-06-24 13:21:37.839 WARN  [github-actions] go test ./... — 1 tests skipped (no DB connection)
+2026-06-24 13:21:37.875 INFO  [k8s] HPA: scaling devmind-worker from 2 to 3 (CPU: 74%)
+2026-06-24 13:21:37.907 INFO  [kafka] Topic devmind-alerts created (partitions: 2, replication-factor: 3)
+2026-06-24 13:21:37.938 WARN  [redis] Slow log entry: HGETALL devmind:agents:state took 156ms
+2026-06-24 13:21:37.950 WARN  [k8s] Node k8s-worker-4 disk pressure: 95% used
+2026-06-24 13:21:38.043 INFO  [langchain] MCP server mcp-docker connected (tools available: 9)
+2026-06-24 13:21:38.137 WARN  [github-actions] Job test: 2 flaky test(s) detected — retrying
+2026-06-24 13:21:38.369 DEBUG [k8s] Liveness probe OK for devmind-api-7d8f9c-xk2p (http /healthz 200 184ms)
+2026-06-24 13:21:38.428 INFO  [github-actions] Job deploy: Completed in 106s — SUCCESS
+2026-06-24 13:21:38.933 INFO  [prometheus] Rule evaluation complete: 10 rules in 836ms
+2026-06-24 13:21:38.965 WARN  [devmind-api] o.h.engine.jdbc.spi.SqlExceptionHelper : SQL Warning Code: 1292, SQLState: 22007 — truncated incorrect DOUBLE value
+2026-06-24 13:21:39.122 INFO  [kafka] Consumer group devmind-workers joined topic devmind-events (partition: 2, offset: 32005)
+2026-06-24 13:21:39.135 WARN  [langchain] Agent K8sAgent retrying tool call (attempt 2/3): tool timeout after 30s
+2026-06-24 13:21:39.252 WARN  [kafka] Consumer lag on devmind-alerts: 1624 messages behind
+2026-06-24 13:21:39.283 INFO  [k8s] HPA: scaling devmind-worker from 2 to 4 (CPU: 74%)
+2026-06-24 13:21:39.284 INFO  [docker] Compose up: 5 containers started, 0 failed
+2026-06-24 13:21:39.291 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:39.302 WARN  [github-actions] go test ./... — 3 tests skipped (no DB connection)
+2026-06-24 13:21:39.399 INFO  [langchain] LangGraph node "analyze_logs" → "generate_fix" transition (step 7)
+2026-06-24 13:21:39.583 DEBUG [docker] Layer sha256:bwvxlwcwop9 already cached
+2026-06-24 13:21:39.670 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 24, 414ms)
+2026-06-24 13:21:39.672 ERROR [docker] Container devmind-mcp exited with code 1 — OOMKilled (memory limit exceeded)
+2026-06-24 13:21:39.725 INFO  [k8s] Deployment devmind-api scaled to 3 replicas
+2026-06-24 13:21:39.743 INFO  [docker] Image prune complete: removed 8 dangling images (freed 512MB)
+2026-06-24 13:21:39.747 INFO  [nginx] Upstream devmind-api response: 180ms (worker: devmind-api:8080)
+2026-06-24 13:21:39.963 INFO  [k8s] Deployment devmind-api scaled to 3 replicas
+2026-06-24 13:21:40.036 INFO  [kafka] Broker kafka:9092 elected as leader for devmind-agent-runs-1
+2026-06-24 13:21:40.199 INFO [nginx] 34.209.30.59 - - "GET /api/v1/agents/run HTTP/1.1" 201 2656 "-" "devmind-client/1.0"
+2026-06-24 13:21:40.530 DEBUG [prometheus] devmind_jvm_heap_used_bytes 530579456
+2026-06-24 13:21:40.678 WARN  [postgres] Connection pool near limit: 96/100 connections active
+2026-06-24 13:21:40.803 WARN  [kafka] Consumer lag on devmind-agent-runs: 3149 messages behind
+2026-06-24 13:21:40.821 WARN  [prometheus] Slow scrape: target http://devmind-worker:9090/metrics took 7330ms (>5s)
+2026-06-24 13:21:40.944 ERROR [docker] Container devmind-mcp exited with code 1 — OOMKilled (memory limit exceeded)
+2026-06-24 13:21:40.964 ERROR [postgres] Deadlock detected on relation pipelines (PID 8080 vs 2379)
+2026-06-24 13:21:41.036 WARN  [langchain] Context window at 86% capacity — summarizing older messages
+2026-06-24 13:21:41.118 INFO  [langchain] Memory checkpoint saved for agent DockerAgent (state size: 17KB)
+2026-06-24 13:21:41.156 WARN  [devmind-api] o.h.engine.jdbc.spi.SqlExceptionHelper : SQL Warning Code: 1292, SQLState: 22007 — truncated incorrect DOUBLE value
+2026-06-24 13:21:41.180 INFO  [postgres] Checkpoint complete: wrote 130 buffers (1.1%)
+2026-06-24 13:21:41.180 INFO  [redis] Client connected: devmind-api@127.0.0.1:40972 (total: 13)
+2026-06-24 13:21:41.247 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
+2026-06-24 13:21:41.482 WARN  [k8s] Node k8s-worker-2 disk pressure: 87% used
+2026-06-24 13:21:41.541 INFO  [github-actions] Step: Push image devmind/api:uwkp5kl8 ✓ (88s)
+2026-06-24 13:21:41.587 WARN  [kafka] Rebalance triggered for group devmind-workers (2 members)
+2026-06-24 13:21:41.590 INFO  [github-actions] Job deploy: Completed in 98s — SUCCESS
+2026-06-24 13:21:41.873 WARN  [k8s] Pod devmind-worker-5b6c-nl9q CrashLoopBackOff: restarted 5 times in last 10m
+2026-06-24 13:21:42.042 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:42.058 INFO  [prometheus] Rule evaluation complete: 14 rules in 191ms
+2026-06-24 13:21:42.133 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:21:42.138 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (189ms)
+2026-06-24 13:21:42.201 INFO  [docker] Pulling image devmind/api:v1.0.9 from registry.hub.docker.com
+2026-06-24 13:21:42.284 INFO  [nginx] Upstream devmind-api response: 630ms (worker: devmind-api:8080)
+2026-06-24 13:21:42.366 WARN  [nginx] Upstream timeout after 30s for POST /api/v1/agents/run (retrying)
+2026-06-24 13:21:42.638 INFO  [docker] Health check passed for devmind-api: GET /api/v1/health => 200 (671ms)
+2026-06-24 13:21:42.649 INFO  [devmind-api,Q9IOY2YFBBJ,ZWDUKVWY] c.d.security.JwtFilter : Token validated for user aman@devmind.io (exp: 2026-06-24T14:21:57.855Z)
+2026-06-24 13:21:42.683 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:21:42.789 INFO  [github-actions] Step: Setup Go 1.22 — ✓ cached (3s)
+2026-06-24 13:21:42.836 DEBUG [redis] CMD SET session:66ta3hev2b8 EX 3600 — OK (5ms)
+2026-06-24 13:21:42.945 INFO  [nginx] SSL handshake completed for 18.67.90.241 (TLSv1.3, cipher: TLS_AES_256_GCM_SHA384)
+2026-06-24 13:21:42.949 ERROR [postgres] Deadlock detected on relation pipelines (PID 3133 vs 6948)
+2026-06-24 13:21:42.991 DEBUG [k8s] Liveness probe OK for devmind-api-7d8f9c-xk2p (http /healthz 200 236ms)
+2026-06-24 13:21:43.512 INFO  [kafka] Broker kafka:9092 elected as leader for devmind-agent-runs-1
+2026-06-24 13:21:43.610 INFO  [nginx] Worker process 3323 started
+2026-06-24 13:21:43.615 INFO  [langchain] Memory checkpoint saved for agent K8sAgent (state size: 6KB)
+2026-06-24 13:21:43.863 INFO  [docker] Container devmind-api started successfully (ID: bd9e4wpwvpb)
+2026-06-24 13:21:44.026 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:21:44.104 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 9902)
+2026-06-24 13:21:44.275 INFO [nginx] 43.99.187.23 - - "DELETE /metrics HTTP/1.1" 304 4775 "-" "devmind-client/1.0"
+2026-06-24 13:21:44.476 WARN  [k8s] Node k8s-worker-3 disk pressure: 85% used
+2026-06-24 13:21:44.498 ERROR [postgres] Deadlock detected on relation pipelines (PID 9624 vs 1803)
+2026-06-24 13:21:44.834 INFO  [docker] Pulling image devmind/api:v1.8.14 from registry.hub.docker.com
+2026-06-24 13:21:44.836 DEBUG [devmind-api] c.d.config.RedisConfig : Redis connection pool: active=4, idle=1, max=20
+2026-06-24 13:21:44.967 INFO  [langchain] Agent LangChainAgent invoked — model: claude-sonnet-4-6 (temp: 0.2)
+2026-06-24 13:21:45.015 ERROR [devmind-api] c.d.service.KafkaProducerService : Failed to publish to topic devmind-events: Broker not available
+2026-06-24 13:21:45.045 WARN  [kafka] Rebalance triggered for group devmind-workers (5 members)
+2026-06-24 13:21:45.163 DEBUG [docker] Forwarding port 8080->8080 for container devmind-api
+2026-06-24 13:21:45.185 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:45.202 INFO  [github-actions] Step: kubectl apply -f k8s/ ✓ — deployment.apps/devmind-api configured
+2026-06-24 13:21:45.281 WARN  [prometheus] Slow scrape: target http://devmind-worker:9090/metrics took 7101ms (>5s)
+2026-06-24 13:21:45.435 WARN [nginx] 77.73.61.223 - - "PUT /api/v1/pipelines HTTP/1.1" 429 2398 "-" "devmind-client/1.0"
+2026-06-24 13:21:45.537 DEBUG [langchain] Tool call: docker_logs args={"namespace":"devmind","tail":100}
+2026-06-24 13:21:45.790 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 6310)
+2026-06-24 13:21:45.953 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:46.318 INFO  [langchain] Memory checkpoint saved for agent MonitorAgent (state size: 3KB)
+2026-06-24 13:21:46.437 INFO  [github-actions] Workflow devmind-ci triggered (push to main by amandx36)
+2026-06-24 13:21:46.525 ERROR [k8s] PVC devmind-data-pvc pending: no PersistentVolume available
+2026-06-24 13:21:46.564 INFO  [k8s] ConfigMap devmind-config updated — rolling restart triggered
+2026-06-24 13:21:46.690 INFO  [devmind-api,NTNS0OTWJFF,BWA3V948] c.d.security.JwtFilter : Token validated for user aman@devmind.io (exp: 2026-06-24T14:21:57.851Z)
+2026-06-24 13:21:46.697 INFO  [postgres] Connection from devmind-api@devmind_db (PID: 4243)
+2026-06-24 13:21:46.787 INFO  [nginx] Access: 178.182.147.29 "GET /metrics HTTP/1.1" 200 2800
+2026-06-24 13:21:46.919 DEBUG [prometheus] devmind_jvm_heap_used_bytes 614465536
+2026-06-24 13:21:47.007 INFO  [docker] Health check passed for devmind-api: GET /api/v1/health => 200 (592ms)
+2026-06-24 13:21:47.203 INFO  [nginx] Worker process 6020 started
+2026-06-24 13:21:47.276 WARN  [postgres] Slow query (3703ms): SELECT * FROM agent_runs WHERE created_at > NOW() - INTERVAL '7 days'
+2026-06-24 13:21:47.478 INFO  [redis] Client connected: devmind-api@127.0.0.1:64352 (total: 22)
+2026-06-24 13:21:47.573 INFO  [devmind-api] o.s.web.servlet.DispatcherServlet : Completed initialization in 6ms
+2026-06-24 13:21:47.718 INFO  [postgres] Autovacuum: table devmind_db.agent_runs — 418 rows removed
+2026-06-24 13:21:47.765 DEBUG [redis] CMD DEL session:eew2tpgeou8 — 1 key removed
+2026-06-24 13:21:47.904 INFO  [k8s] ConfigMap devmind-config updated — rolling restart triggered
+2026-06-24 13:21:47.907 WARN  [prometheus] Alert firing: HighErrorRate — devmind-api error rate 5.5% > 5% for 5m
+2026-06-24 13:21:47.929 INFO  [docker] Image prune complete: removed 5 dangling images (freed 311MB)
+2026-06-24 13:21:48.034 WARN  [kafka] Rebalance triggered for group devmind-workers (5 members)
+2026-06-24 13:21:48.040 INFO  [github-actions] Step: kubectl apply -f k8s/ ✓ — deployment.apps/devmind-api configured
+2026-06-24 13:21:48.046 INFO  [prometheus] TSDB compaction complete: 269 blocks merged
+2026-06-24 13:21:48.126 INFO  [github-actions] Step: go build ./... ✓ (18s)
+2026-06-24 13:21:48.223 ERROR [postgres] Deadlock detected on relation pipelines (PID 6883 vs 9039)
+2026-06-24 13:21:48.240 ERROR [devmind-api] c.d.service.KafkaProducerService : Failed to publish to topic devmind-events: Broker not available
+2026-06-24 13:21:48.392 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:48.440 INFO  [devmind-api,ZT1TMOLK9JR,3CA98RDM] c.d.api.AgentController : POST /api/v1/agents/run — agent=LangChainAgent latency=158ms
+2026-06-24 13:21:48.445 INFO  [postgres] Autovacuum: table devmind_db.agent_runs — 103 rows removed
+2026-06-24 13:21:48.448 INFO  [github-actions] Step: Push image devmind/api:h26qoz7m ✓ (62s)
+2026-06-24 13:21:48.518 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:21:48.787 ERROR [nginx] connect() failed (111: Connection refused) while connecting to upstream devmind-api:8080
+2026-06-24 13:21:48.911 DEBUG [prometheus] devmind_jvm_heap_used_bytes 367001600
+2026-06-24 13:21:48.937 WARN  [langchain] Context window at 92% capacity — summarizing older messages
+2026-06-24 13:21:48.942 DEBUG [docker] Forwarding port 8080->8080 for container devmind-api
+2026-06-24 13:21:49.158 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (337ms)
+2026-06-24 13:21:49.197 WARN  [k8s] Node k8s-worker-4 disk pressure: 94% used
+2026-06-24 13:21:49.216 DEBUG [prometheus] devmind_api_requests_total{method="POST",status="200"} 1864
+2026-06-24 13:21:49.269 DEBUG [redis] CMD DEL session:cwylwmkj4wb — 1 key removed
+2026-06-24 13:21:49.305 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 23, 185ms)
+2026-06-24 13:21:49.342 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:21:49.426 INFO  [github-actions] Job deploy: Completed in 142s — SUCCESS
+2026-06-24 13:21:49.717 INFO  [docker] Image prune complete: removed 11 dangling images (freed 740MB)
+2026-06-24 13:21:49.748 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 461328)
+2026-06-24 13:21:49.843 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.26.0.0/16)
+2026-06-24 13:21:49.848 DEBUG [devmind-api,TIRGFU4NSKQ,O7J50GRD] c.d.service.MCPService : Executing MCP tool: docker_logs (timeout=30s)
+2026-06-24 13:21:49.944 INFO  [langchain] MCP server mcp-docker connected (tools available: 12)
+2026-06-24 13:21:49.990 WARN  [docker] Container devmind-worker memory usage at 75% (925MB / 1024MB)
+2026-06-24 13:21:50.091 WARN  [prometheus] Slow scrape: target http://devmind-worker:9090/metrics took 6846ms (>5s)
+2026-06-24 13:21:50.268 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 20, 26ms)
+2026-06-24 13:21:50.283 INFO  [nginx] Upstream devmind-api response: 300ms (worker: devmind-api:8080)
+2026-06-24 13:21:50.409 INFO  [langchain] Agent DockerAgent invoked — model: claude-sonnet-4-6 (temp: 0.2)
+2026-06-24 13:21:50.511 INFO  [langchain] Memory checkpoint saved for agent AlertAgent (state size: 7KB)
+2026-06-24 13:21:50.672 INFO  [redis] Client connected: devmind-api@127.0.0.1:46580 (total: 32)
+2026-06-24 13:21:50.714 DEBUG [postgres] Index scan on agent_runs using idx_agent_runs_user_id (cost=21.10)
+2026-06-24 13:21:51.042 INFO  [nginx] SSL handshake completed for 131.12.107.137 (TLSv1.3, cipher: TLS_AES_256_GCM_SHA384)
+2026-06-24 13:21:51.265 WARN  [kafka] Consumer lag on devmind-events: 2428 messages behind
+2026-06-24 13:21:51.268 INFO  [postgres] Checkpoint complete: wrote 79 buffers (1.4%)
+2026-06-24 13:21:51.321 INFO  [docker] Container devmind-api started successfully (ID: swzt9o6orb)
+2026-06-24 13:21:51.475 ERROR [kafka] Failed to produce to devmind-agent-runs: org.apache.kafka.common.errors.NotLeaderOrFollowerException
+2026-06-24 13:21:52.246 DEBUG [redis] CMD GET cache:pipeline:78 — HIT (1ms)
+2026-06-24 13:21:52.264 DEBUG [postgres] Query: SELECT id, name, status FROM pipelines WHERE user_id=$1 (rows: 18, 680ms)
+2026-06-24 13:21:52.501 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (296ms)
+2026-06-24 13:21:52.558 INFO  [langchain] Memory checkpoint saved for agent MonitorAgent (state size: 5KB)
+2026-06-24 13:21:52.677 INFO  [redis] Client connected: devmind-api@127.0.0.1:32168 (total: 33)
+2026-06-24 13:21:52.698 WARN  [postgres] Connection pool near limit: 91/100 connections active
+2026-06-24 13:21:52.798 DEBUG [redis] CMD GET cache:pipeline:761 — HIT (3ms)
+2026-06-24 13:21:52.928 DEBUG [k8s] Liveness probe OK for devmind-ui-6f4d-zr1m (http /healthz 200 709ms)
+2026-06-24 13:21:53.233 INFO  [devmind-api] o.s.b.SpringApplication : Started DevMindApplication in 3.1s (JVM running for 5.9s)
+2026-06-24 13:21:53.883 INFO  [redis] Client connected: devmind-api@127.0.0.1:50651 (total: 31)
+2026-06-24 13:21:54.084 WARN  [docker] Slow container stop (>10s): devmind-worker — sending SIGKILL
+2026-06-24 13:21:54.121 DEBUG [redis] CMD SET session:xhqncutz9n EX 3600 — OK (5ms)
+2026-06-24 13:21:54.210 DEBUG [langchain] Vector store query: k=5 results for "container restart reason" (323ms)
+2026-06-24 13:21:54.355 DEBUG [kafka] Heartbeat sent to coordinator (group: devmind-workers, interval: 3000ms)
+2026-06-24 13:21:54.602 DEBUG [redis] CMD DEL session:rmruewdm7g — 1 key removed
+2026-06-24 13:21:54.730 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:54.817 DEBUG [prometheus] devmind_api_requests_total{method="POST",status="200"} 3801
+2026-06-24 13:21:54.823 INFO  [docker] Network devmind_default created (driver: bridge, subnet: 172.26.0.0/16)
+2026-06-24 13:21:54.901 WARN  [redis] Evicting keys (maxmemory-policy: allkeys-lru): 163 keys evicted
+2026-06-24 13:21:55.079 INFO  [langchain] Memory checkpoint saved for agent DockerAgent (state size: 15KB)
+2026-06-24 13:21:55.439 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 688466)
+2026-06-24 13:21:55.528 INFO  [docker] Compose up: 5 containers started, 0 failed
+2026-06-24 13:21:55.788 ERROR [devmind-api] c.d.api.GlobalExceptionHandler : Unhandled exception in AgentController
+java.lang.NullPointerException: Cannot invoke method getTools() on null
+	at com.devmind.service.AgentService.execute(AgentService.java:87)
+2026-06-24 13:21:55.857 INFO  [langchain] Tool slack_notify completed in 493ms — tokens: 685
+2026-06-24 13:21:56.041 ERROR [k8s] PVC devmind-data-pvc pending: no PersistentVolume available
+2026-06-24 13:21:56.050 INFO  [github-actions] Job build: Running on ubuntu-22.04 (runner: GitHub-hosted)
+2026-06-24 13:21:56.200 INFO  [docker] Image prune complete: removed 5 dangling images (freed 682MB)
+2026-06-24 13:21:56.254 DEBUG [prometheus] devmind_active_agents_total 4
+2026-06-24 13:21:56.271 INFO  [redis] BGSAVE triggered — RDB snapshot started
+2026-06-24 13:21:56.303 DEBUG [prometheus] devmind_agent_execution_duration_seconds{agent="langchain"} 1.30
+2026-06-24 13:21:56.331 DEBUG [redis] CMD DEL session:pxvuojs9fv — 1 key removed
+2026-06-24 13:21:56.344 ERROR [github-actions] Step: Docker build — FAILED: RUN go build returned exit code 2
+2026-06-24 13:21:56.736 DEBUG [prometheus] devmind_active_agents_total 4
+2026-06-24 13:21:56.901 INFO  [k8s] HPA: scaling devmind-worker from 2 to 6 (CPU: 90%)
+2026-06-24 13:21:56.914 DEBUG [devmind-api,N787QORUTJK,KCSWM1LA] c.d.service.MCPService : Executing MCP tool: docker_logs (timeout=30s)
+2026-06-24 13:21:56.926 DEBUG [redis] CMD DEL session:gv8s327msud — 1 key removed
+2026-06-24 13:21:56.960 INFO  [langchain] Agent DockerAgent invoked — model: claude-sonnet-4-6 (temp: 0.2)
+2026-06-24 13:21:56.981 WARN  [nginx] 2 upstream(s) unavailable, using backup
+2026-06-24 13:21:57.079 DEBUG [redis] CMD DEL session:r4e3pexhnid — 1 key removed
+2026-06-24 13:21:57.119 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 896870)
+2026-06-24 13:21:57.222 WARN  [postgres] Connection pool near limit: 93/100 connections active
+2026-06-24 13:21:57.767 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
+2026-06-24 13:21:57.794 WARN  [redis] Slow log entry: HGETALL devmind:agents:state took 297ms
