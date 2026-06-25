@@ -9,7 +9,7 @@ import (
 	
 )
 
-func LoadingBuffer() (models.LogReport,error){
+func MainParsing() (models.LogReport,error){
 	myLogs := models.LogReport{
 		Counts: models.Counts{
 			"ERROR":   0,
@@ -18,7 +18,7 @@ func LoadingBuffer() (models.LogReport,error){
 			"DEFAULT": 0,
 		},
 	}
-	file, err := os.Open("Logs/main.log")
+	file, err := os.Open("logs/inputs/main.log")
 
 	if err != nil {
 		fmt.Printf("Error in opening the File: %v\n", err)
@@ -108,6 +108,9 @@ func LoadingBuffer() (models.LogReport,error){
 	
 
 	}
+
 	
+	fmt.Println("The Object i got ")
+	fmt.Println(myLogs)
 	 return myLogs, nil
 }
