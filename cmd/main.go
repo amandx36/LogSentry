@@ -14,17 +14,17 @@ func main() {
 		fmt.Println("Got Error ",err)
 		return 
 	}
-	
+
+	report, _, err := parser.LoadingBuffer(cfg)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	err = writer.OutputWriting(cfg.OutputDir, report)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	
-	// report, _,err := parser.LoadingBuffer()
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	return
-	// }
-
-	// err = writer.OutputWriting(report)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
 }
