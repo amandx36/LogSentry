@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func LoadingBuffer() (models.LogReport,models.DashBoardDetails,error){
+func LoadingBuffer(cfg config.Config) (models.LogReport,models.DashBoardDetails,error){
 	myLogs := models.LogReport{
 		Counts: models.Counts{
 			"ERROR":   0,
@@ -19,9 +19,9 @@ func LoadingBuffer() (models.LogReport,models.DashBoardDetails,error){
 		},
 	}
 	myDash := models.DashBoardDetails{}
-	 var myConfig = config.Config{}
+	
 
-	file, err := os.Open(myConfig.InputDir)
+	file, err := os.Open(cfg.InputDir)
 
 	if err != nil {
 		fmt.Printf("Error in opening the File: %v\n", err)
