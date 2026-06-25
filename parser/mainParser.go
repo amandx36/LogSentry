@@ -108,5 +108,6 @@ func LoadingBuffer() (models.LogReport,error){
 	
 
 	}
+	
 	 return myLogs, nil
 }
