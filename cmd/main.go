@@ -1,16 +1,20 @@
 package main
 
 import (
-    "fmt"
-    "LogSentry/parser"
+	"LogSentry/parser"
+	"LogSentry/writer"
+	"fmt"
 )
 
 func main() {
-    report, err := parser.MainParsing()
-    if err != nil {
-        fmt.Println(err)
-        return
-    }
+	report, err := parser.LoadingBuffer()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-    fmt.Println(report)
+	err = writer.OutputWriting(report)
+	if err != nil {
+		fmt.Println(err)
+	}
 }

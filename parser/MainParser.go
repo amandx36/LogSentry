@@ -9,7 +9,7 @@ import (
 	
 )
 
-func MainParsing() (models.LogReport,error){
+func LoadingBuffer() (models.LogReport,error){
 	myLogs := models.LogReport{
 		Counts: models.Counts{
 			"ERROR":   0,
@@ -81,24 +81,23 @@ func MainParsing() (models.LogReport,error){
 	
 	fmt.Println(myDash)
 	
-	fmt.Println("Errors")
-	for _, log := range myLogs.Errors {
-	fmt.Printf("%+v\n", log)
-	}
-	fmt.Println("INFO")
-	for _, log := range myLogs.Infos{
-	fmt.Printf("%+v\n", log)
-	}
-	fmt.Println("WARN")
-	for _, log := range myLogs.Warns {
-	fmt.Printf("%+v\n", log)
-
-	fmt.Println("UNKNOWN")
-	for _, log := range myLogs.Unknown {
-	fmt.Printf("%+v\n", log)
-
-
-}
+	// fmt.Println("Errors")
+	// for _, log := range myLogs.Errors {
+	// fmt.Printf("%+v\n", log)
+	// }
+	// fmt.Println("INFO")
+	// for _, log := range myLogs.Infos{
+	// fmt.Printf("%+v\n", log)
+	// }
+	// fmt.Println("WARN")
+	// for _, log := range myLogs.Warns {
+	// fmt.Printf("%+v\n", log)
+	// }
+	// fmt.Println("UNKNOWN")
+	// for _, log := range myLogs.Unknown {
+	// fmt.Printf("%+v\n", log)
+	
+	// }
 
 	if wrong := scanner.Err(); wrong != nil {
 		fmt.Print("Error while loading the Scanner\n", wrong)
@@ -106,11 +105,11 @@ func MainParsing() (models.LogReport,error){
 
 	}
 	
+	fmt.Println("The Object i got ")
+	fmt.Println(myLogs)
+	 return myLogs, nil
 
 	}
 
 	
-	fmt.Println("The Object i got ")
-	fmt.Println(myLogs)
-	 return myLogs, nil
-}
+

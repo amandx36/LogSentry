@@ -1,47 +1,65 @@
 package writer
 
-// LogReport
-//       │
-//       ▼
-// Errors Slice
-//       │
-//       ▼
-// Logs/Error.log
-
-// Warn Slice
-//       │
-//       ▼
-// Logs/Warn.log
-
-// Infos Slice
-//       │
-//       ▼
-// Logs/Info.log
-
-// Unknown Slice
-//       │
-//       ▼
-// Logs/Unknown.log
 import (
+	"LogSentry/models"
+	"bufio"
 	"fmt"
 	"os"
-	"LogSentry/parser"
 )
 
-func outputWriting (){
-	path := "./logs/output"
+func writeLogs(path string, logs []models.LogEntry) error {
 
-	outPutfile , err := os.Create(path)
+	outPutfile, err := os.Create(path)
 	if err != nil {
-		fmt.Println("Error in creating the path")
-
+		return err
 	}
 	defer outPutfile.Close()
-	    data , err  := parser.MainParsing()
+
+	writer := bufio.NewWriter(outPutfile)
+
+	for _, log := range logs {
+
+		_, err := fmt.Fprintf(
+			writer,
+			"%s %s [%s] %s\n",
+			log.TimeStamp,
+			log.Category,
+			log.Source,
+			log.Details,
+		)
+
 		if err != nil {
-			fmt.Println("Error in Parsing #02 ")
+			return err
 		}
-	fmt.Println("Total Number of Error ")
-	
-	
+	}
+
+	// Write buffered data to disk
+	if err := writer.Flush(); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func OutputWriting(report models.LogReport) error {
+
+	if err := writeLogs("logs/output/Error.log", report.Errors); err != nil {
+		return err
+	}
+
+	if err := writeLogs("logs/output/Warn.log", report.Warns); err != nil {
+		return err
+	}
+
+	if err := writeLogs("logs/output/Info.log", report.Infos); err != nil {
+		return err
+	}
+
+	if err := writeLogs("logs/output/Unknown.log", report.Unknown); err != nil {
+		return err
+	}
+
+	fmt.Println("FILE LOGS GenEratED")
+
+	return nil
 }
