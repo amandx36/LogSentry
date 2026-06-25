@@ -6,17 +6,26 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"regexp"
+	
 )
 
-func LoadingBuffer() {
-
+func LoadingBuffer() (models.LogReport,error){
+	myLogs := models.LogReport{
+		Counts: models.Counts{
+			"ERROR":   0,
+			"WARN":    0,
+			"INFO":    0,
+			"DEFAULT": 0,
+		},
+	}
 	file, err := os.Open("Logs/main.log")
 
 	if err != nil {
 		fmt.Printf("Error in opening the File: %v\n", err)
-		return
+		 
+		return models.LogReport{},err
 	}
+
 	defer file.Close()
 
 	// buffer input/ output
@@ -24,86 +33,80 @@ func LoadingBuffer() {
 	// intilize the struct
 	myDash := models.DashBoardDetails{}
 	
-// 	type LogReport struct {
-//     Errors  []LogEntry
-//     Warns   []LogEntry
-//     Infos   []LogEntry
-//     Unknown []LogEntry
+	
 
-//     Counts Counts
-
-// }
-
-// type LogEntry struct{
-// 	TimeStamp string 
-// 	Category string 
-// 	Details string   
-// }
-
-
-
-
-
-	logBio := models.LogEntry{}
-
-	myLogs := models.LogReport{
-		Occurs: models.Counts{
-			"ERROR":   0,
-			"WARN":    0,
-			"INFO":    0,
-			"DEFAULT": 0,
-		},
-	}
 	for scanner.Scan() {
-		line := scanner.Text()
-		fmt.Println(line)
 
-		switch {
-		case strings.Contains(line, "ERROR"):
-			`2026-06-24 13:21:57.767 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production`
-			parts : strings.Split()
-			
-			myLogs.Errors = append(myLogs.Errors, )
+	line := scanner.Text()
 
-		case strings.Contains(line, "WARN"):
-			Warn = append(Warn, line)
-			counts["WARN"]++
+	parts := strings.Fields(line)
 
-		case strings.Contains(line, "INFO"):
-			Info = append(Info, line)
-			counts["INFO"]++
+	if len(parts) < 5 {
+		continue
+	}
 
-		default:
-			Unknown = append(Unknown, line)
-			counts["DEFAULT"]++
+	// Create LogEntry
+	entry := models.LogEntry{
+		TimeStamp: parts[0] + " " + parts[1],
+		Category:  parts[2],
+		Source:    strings.Trim(parts[3], "[]"),
+		Details:   strings.Join(parts[4:], " "),
+	}
 
+	switch entry.Category {
+
+	case "ERROR":
+		myLogs.Errors = append(myLogs.Errors, entry)
+		myLogs.Counts["ERROR"]++
+		
+
+	case "WARN":
+		myLogs.Warns = append(myLogs.Warns, entry)
+		myLogs.Counts["WARN"]++
+
+	case "INFO":
+		myLogs.Infos = append(myLogs.Infos, entry)
+		myLogs.Counts["INFO"]++
+
+	default:
+		myLogs.Unknown = append(myLogs.Unknown, entry)
+		myLogs.Counts["DEFAULT"]++
 		}
+	}
+	myDash.Errors = myLogs.Counts["ERROR"]
+	myDash.Infos = myLogs.Counts["INFO"]
+	myDash.Warns = myLogs.Counts["WARN"]
+	myDash.Unknown = myLogs.Counts["DEFAULT"]
+	myDash.TotalLogs = myDash.Errors + myDash.Warns + myDash.Infos + myDash.Unknown
+	
+	fmt.Println(myDash)
+	
+	fmt.Println("Errors")
+	for _, log := range myLogs.Errors {
+	fmt.Printf("%+v\n", log)
+	}
+	fmt.Println("INFO")
+	for _, log := range myLogs.Infos{
+	fmt.Printf("%+v\n", log)
+	}
+	fmt.Println("WARN")
+	for _, log := range myLogs.Warns {
+	fmt.Printf("%+v\n", log)
 
-	}
-	if wrong := scanner.Err(); wrong != nil {
-		fmt.Print("Error while loading the Scanner\n", wrong)
-		return
+	fmt.Println("UNKNOWN")
+	for _, log := range myLogs.Unknown {
+	fmt.Printf("%+v\n", log)
 
-	}
-	fmt.Println(counts["ERROR"])
-	fmt.Println(counts["WARN"])
-	fmt.Println(counts["INFO"])
-	fmt.Println(counts["DEFAULT"])
-	fmt.Println("Total Errors ")
-	for i := 0; i < len(Errors); i++ {
-		fmt.Println(Errors[i])
-	}
-	fmt.Println("Total number of Warns ")
-	for i := 0; i < len(Warn); i++ {
-		fmt.Println(Warn[i])
-	}
-	fmt.Println("Total number of Info ")
-	for i := 0; i < len(Warn); i++ {
-		fmt.Println(Info[i])
-	}
 
 }
 
-func main() {
-	LoadingBuffer()
+	if wrong := scanner.Err(); wrong != nil {
+		fmt.Print("Error while loading the Scanner\n", wrong)
+		return models.LogReport{} , wrong
+
+	}
+	
+
+	}
+	 return myLogs, nil
 }

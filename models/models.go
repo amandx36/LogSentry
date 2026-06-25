@@ -11,6 +11,7 @@ type DashBoardDetails struct{
 type LogEntry struct{
 	TimeStamp string 
 	Category string 
+	Source string 
 	Details string   
 }
 
