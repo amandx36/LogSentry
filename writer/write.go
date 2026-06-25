@@ -8,7 +8,6 @@ import (
 )
 
 func writeLogs(path string, logs []models.LogEntry) error {
-
 	outPutfile, err := os.Create(path)
 	if err != nil {
 		return err
@@ -42,7 +41,6 @@ func writeLogs(path string, logs []models.LogEntry) error {
 }
 
 func OutputWriting(report models.LogReport) error {
-
 	if err := writeLogs("logs/output/Error.log", report.Errors); err != nil {
 		return err
 	}

@@ -1,12 +1,12 @@
 package parser
 
 import (
+	"LogSentry/config"
 	"LogSentry/models"
 	"bufio"
 	"fmt"
 	"os"
 	"strings"
-	
 )
 
 func LoadingBuffer() (models.LogReport,models.DashBoardDetails,error){
@@ -18,9 +18,10 @@ func LoadingBuffer() (models.LogReport,models.DashBoardDetails,error){
 			"DEFAULT": 0,
 		},
 	}
-		myDash := models.DashBoardDetails{}
+	myDash := models.DashBoardDetails{}
+	 var myConfig = config.Config{}
 
-	file, err := os.Open("logs/inputs/main.log")
+	file, err := os.Open(myConfig.InputDir)
 
 	if err != nil {
 		fmt.Printf("Error in opening the File: %v\n", err)
