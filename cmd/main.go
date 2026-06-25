@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	report, err := parser.LoadingBuffer()
+	report, _,err := parser.LoadingBuffer()
 	if err != nil {
 		fmt.Println(err)
 		return

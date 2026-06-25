@@ -9,7 +9,7 @@ import (
 	
 )
 
-func LoadingBuffer() (models.LogReport,error){
+func LoadingBuffer() (models.LogReport,models.DashBoardDetails,error){
 	myLogs := models.LogReport{
 		Counts: models.Counts{
 			"ERROR":   0,
@@ -18,12 +18,14 @@ func LoadingBuffer() (models.LogReport,error){
 			"DEFAULT": 0,
 		},
 	}
+		myDash := models.DashBoardDetails{}
+
 	file, err := os.Open("logs/inputs/main.log")
 
 	if err != nil {
 		fmt.Printf("Error in opening the File: %v\n", err)
 		 
-		return models.LogReport{},err
+		return models.LogReport{},myDash,err
 	}
 
 	defer file.Close()
@@ -31,7 +33,6 @@ func LoadingBuffer() (models.LogReport,error){
 	// buffer input/ output
 	scanner := bufio.NewScanner(file)
 	// intilize the struct
-	myDash := models.DashBoardDetails{}
 	
 	
 
@@ -101,13 +102,13 @@ func LoadingBuffer() (models.LogReport,error){
 
 	if wrong := scanner.Err(); wrong != nil {
 		fmt.Print("Error while loading the Scanner\n", wrong)
-		return models.LogReport{} , wrong
+		return models.LogReport{} , myDash,wrong
 
 	}
 	
 	fmt.Println("The Object i got ")
 	fmt.Println(myLogs)
-	 return myLogs, nil
+	 return myLogs, myDash,nil
 
 	}
 
