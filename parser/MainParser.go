@@ -3,13 +3,12 @@ package parser
 import (
 	"LogSentry/config"
 	"LogSentry/models"
-	"bufio"
-	"fmt"
+	
 	"os"
 	"strings"
 )
+func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails, error) {
 
-func LoadingBuffer(cfg config.Config) (models.LogReport,models.DashBoardDetails,error){
 	myLogs := models.LogReport{
 		Counts: models.Counts{
 			"ERROR":   0,
@@ -18,100 +17,42 @@ func LoadingBuffer(cfg config.Config) (models.LogReport,models.DashBoardDetails,
 			"DEFAULT": 0,
 		},
 	}
+
 	myDash := models.DashBoardDetails{}
-	
 
-	file, err := os.Open(cfg.InputDir)
-
+	files, err := os.ReadDir(cfg.InputDir)
 	if err != nil {
-		fmt.Printf("Error in opening the File: %v\n", err)
-		 
-		return models.LogReport{},myDash,err
+		return models.LogReport{}, myDash, err
 	}
 
-	defer file.Close()
+	for _, value := range files {
 
-	// buffer input/ output
-	scanner := bufio.NewScanner(file)
-	// intilize the struct
-	
-	
+		if value.IsDir() {
+			continue
+		}
 
-	for scanner.Scan() {
+		if !strings.HasSuffix(value.Name(), ".log") {
+			continue
+		}
 
-	line := scanner.Text()
+		file, err := os.Open(cfg.InputDir + "/" + value.Name())
+		if err != nil {
+			continue
+		}
 
-	parts := strings.Fields(line)
+		err = ParseSingleFile(file, &myLogs)
+		file.Close()
 
-	if len(parts) < 5 {
-		continue
-	}
-
-	// Create LogEntry
-	entry := models.LogEntry{
-		TimeStamp: parts[0] + " " + parts[1],
-		Category:  parts[2],
-		Source:    strings.Trim(parts[3], "[]"),
-		Details:   strings.Join(parts[4:], " "),
-	}
-
-	switch entry.Category {
-
-	case "ERROR":
-		myLogs.Errors = append(myLogs.Errors, entry)
-		myLogs.Counts["ERROR"]++
-		
-
-	case "WARN":
-		myLogs.Warns = append(myLogs.Warns, entry)
-		myLogs.Counts["WARN"]++
-
-	case "INFO":
-		myLogs.Infos = append(myLogs.Infos, entry)
-		myLogs.Counts["INFO"]++
-
-	default:
-		myLogs.Unknown = append(myLogs.Unknown, entry)
-		myLogs.Counts["DEFAULT"]++
+		if err != nil {
+			return models.LogReport{}, myDash, err
 		}
 	}
+
 	myDash.Errors = myLogs.Counts["ERROR"]
-	myDash.Infos = myLogs.Counts["INFO"]
 	myDash.Warns = myLogs.Counts["WARN"]
+	myDash.Infos = myLogs.Counts["INFO"]
 	myDash.Unknown = myLogs.Counts["DEFAULT"]
 	myDash.TotalLogs = myDash.Errors + myDash.Warns + myDash.Infos + myDash.Unknown
-	
-	fmt.Println(myDash)
-	
-	// fmt.Println("Errors")
-	// for _, log := range myLogs.Errors {
-	// fmt.Printf("%+v\n", log)
-	// }
-	// fmt.Println("INFO")
-	// for _, log := range myLogs.Infos{
-	// fmt.Printf("%+v\n", log)
-	// }
-	// fmt.Println("WARN")
-	// for _, log := range myLogs.Warns {
-	// fmt.Printf("%+v\n", log)
-	// }
-	// fmt.Println("UNKNOWN")
-	// for _, log := range myLogs.Unknown {
-	// fmt.Printf("%+v\n", log)
-	
-	// }
 
-	if wrong := scanner.Err(); wrong != nil {
-		fmt.Print("Error while loading the Scanner\n", wrong)
-		return models.LogReport{} , myDash,wrong
-
-	}
-	
-	fmt.Println("The Object i got ")
-	fmt.Println(myLogs)
-	 return myLogs, myDash,nil
-
-	}
-
-	
-
+	return myLogs, myDash, nil
+}
