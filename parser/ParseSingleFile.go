@@ -1,30 +1,33 @@
 package parser
+
 import (
-	"os"
-	"bufio"
 	"LogSentry/models"
-	"strings"
+	"bufio"
+	"os"
+	"regexp"
 )
 
 func ParseSingleFile(file *os.File, myLogs *models.LogReport) error {
 
 	scanner := bufio.NewScanner(file)
 
+	reg := regexp.MustCompile(`^(\S+\s+\S+)\s+(\w+)\s+\[(.*?)\]\s+(.*)$`)
+
 	for scanner.Scan() {
 
 		line := scanner.Text()
 
-		parts := strings.Fields(line)
+		match := reg.FindStringSubmatch(line)
 
-		if len(parts) < 5 {
+		if match == nil {
 			continue
 		}
 
 		entry := models.LogEntry{
-			TimeStamp: parts[0] + " " + parts[1],
-			Category:  parts[2],
-			Source:    strings.Trim(parts[3], "[]"),
-			Details:   strings.Join(parts[4:], " "),
+			TimeStamp: match[1],
+			Category:  match[2],
+			Source:    match[3],
+			Details:   match[4],
 		}
 
 		switch entry.Category {

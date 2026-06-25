@@ -3,10 +3,10 @@ package parser
 import (
 	"LogSentry/config"
 	"LogSentry/models"
-	
 	"os"
 	"strings"
 )
+
 func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails, error) {
 
 	myLogs := models.LogReport{
@@ -52,7 +52,10 @@ func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails
 	myDash.Warns = myLogs.Counts["WARN"]
 	myDash.Infos = myLogs.Counts["INFO"]
 	myDash.Unknown = myLogs.Counts["DEFAULT"]
-	myDash.TotalLogs = myDash.Errors + myDash.Warns + myDash.Infos + myDash.Unknown
+	myDash.TotalLogs = myDash.Errors +
+		myDash.Warns +
+		myDash.Infos +
+		myDash.Unknown
 
 	return myLogs, myDash, nil
 }
