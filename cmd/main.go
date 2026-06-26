@@ -29,15 +29,16 @@ func main() {
 	}
 
 	db, err := postgres.Connect(cfg)
-    if err != nil {
-        panic(err) // Crash if the DB is offline
-    }
-    
-    // THIS is where the defer belongs! 
-    // It keeps the DB alive until the entire program finishes.
-    defer db.Close()
+	 if err != nil {
+		fmt.Println(err)
+		return
+		}
+	defer db.Close()
 
-
-
+	err = postgres.InsertLogs(db, report)
+		if err != nil {
+			fmt.Println(err)
+		return
+	}
 	
 }
