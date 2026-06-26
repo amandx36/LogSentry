@@ -4,6 +4,7 @@ import (
 	"LogSentry/internal/config"
 	"LogSentry/internal/dashboard"
 	"LogSentry/internal/parser"
+	"LogSentry/internal/search"
 	"LogSentry/internal/storage/postgres"
 	"LogSentry/internal/writer"
 	"fmt"
@@ -53,5 +54,38 @@ func main() {
 	fmt.Println("Total Total Logs  " ,StatsInfo.TotalLogs )
 	fmt.Println("Total Unknown  " ,StatsInfo.Unknown )
 	fmt.Println("Total Warns  " ,StatsInfo.Warns )
+
+	searchCat, err := search.SearchByCategory(db, "ERROR")
+	if err != nil{
+		return 
+	}else{
+			fmt.Println("The Error i got dude :) ",searchCat)
+
+	}
+	
+
+	Search , err := search.SearchBySource(db,"redish")
+	if err != nil{
+		fmt.Println("Error in Searching  by Source") 
+	}else{
+		fmt.Println("The Search u got ",Search)
+
+	}
+	
+	keywordLogs, err := search.SearchByKeywords(db, "timeout")
+	if err != nil {
+		fmt.Println("Error searching by keyword:", err)
+	} else {
+		fmt.Println("KEYWORD SEARCH: 'timeout'", keywordLogs)
+	}
+
+	recentLogs, err := search.GetRecentLogs(db, 5)
+	if err != nil {
+		fmt.Println("Error fetching recent logs:", err)
+	} else {
+		fmt.Println("TOP 5 RECENT LOGS", recentLogs)
+	}
+	
+
 
 }
