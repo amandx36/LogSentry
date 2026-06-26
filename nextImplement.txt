@@ -12,3 +12,14 @@
 4. Build Search Service using SQL
 
 5. Build Overall Dashboard using SQL
+
+
+important 
+| SQL Statement            | Go Function     |
+| ------------------------ | --------------- |
+| `SELECT * FROM table`    | `db.Query()`    |
+| `SELECT COUNT(*)`        | `db.QueryRow()` |
+| `SELECT name WHERE id=1` | `db.QueryRow()` |
+| `INSERT`                 | `db.Exec()`     |
+| `UPDATE`                 | `db.Exec()`     |
+| `DELETE`                 | `db.Exec()`     |
