@@ -1,8 +1,8 @@
 package parser
 
 import (
-	"LogSentry/config"
-	"LogSentry/models"
+	"LogSentry/internal/config"
+	"LogSentry/internal/models"
 	"os"
 	"strings"
 )

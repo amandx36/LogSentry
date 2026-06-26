@@ -1,7 +1,7 @@
 package writer
 
 import (
-	"LogSentry/models"
+	"LogSentry/internal/models"
 	"bufio"
 	"fmt"
 	"os"

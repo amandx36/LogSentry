@@ -1,6 +1,0 @@
-{
-    
-    "output_dir": "./logs/output/",
-    "buffer_size": 4096,
-    "input_dir":"./logs/inputs"
-}

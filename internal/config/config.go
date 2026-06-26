@@ -9,6 +9,7 @@ type Config struct {
     InputDir    string `json:"input_dir"`
     OutputDir  string `json:"output_dir"`
     BufferSize int    `json:"buffer_size"`
+	DatabaseUrl string `json:"connectionString"`
 	
 }
 

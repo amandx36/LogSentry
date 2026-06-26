@@ -1,0 +1,14 @@
+1. internal/storage/postgres
+       |
+       |-- connect.go
+       |-- insert.go
+       |-- search.go
+       |-- analytics.go
+
+2. Connect PostgreSQL in main()
+
+3. Save all LogEntry into one table
+
+4. Build Search Service using SQL
+
+5. Build Overall Dashboard using SQL

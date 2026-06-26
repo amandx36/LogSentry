@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"LogSentry/config"
+	"LogSentry/internal/config"
 	"testing"
 )
 

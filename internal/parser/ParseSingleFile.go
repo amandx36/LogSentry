@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"LogSentry/models"
+	"LogSentry/internal/models"
 	"bufio"
 	"os"
 	"regexp"
