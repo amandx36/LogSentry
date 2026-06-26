@@ -2,11 +2,11 @@ package main
 
 import (
 	"LogSentry/internal/config"
+	"LogSentry/internal/dashboard"
 	"LogSentry/internal/parser"
+	"LogSentry/internal/storage/postgres"
 	"LogSentry/internal/writer"
 	"fmt"
-	"LogSentry/internal/storage/postgres"
-	
 )
 
 func main() {
@@ -33,12 +33,25 @@ func main() {
 		fmt.Println(err)
 		return
 		}
-	defer db.Close()
+	
 
 	err = postgres.InsertLogs(db, report)
 		if err != nil {
 			fmt.Println(err)
 		return
 	}
+	fmt.Println("Getting All statics from the database :) ")
 	
+	StatsInfo , err  := dashboard.GetOverallStats(db)
+	defer db.Close()
+	if err != nil {
+		fmt.Println("Error while getting the info from the database :)")
+		return 
+	}
+	fmt.Println("Total Errors " ,StatsInfo.Errors )
+	fmt.Println("Total Info " ,StatsInfo.Infos )
+	fmt.Println("Total Total Logs  " ,StatsInfo.TotalLogs )
+	fmt.Println("Total Unknown  " ,StatsInfo.Unknown )
+	fmt.Println("Total Warns  " ,StatsInfo.Warns )
+
 }
