@@ -1,15 +1,15 @@
 package main
 
 import (
-	"LogSentry/config"
-	"LogSentry/parser"
-	"LogSentry/writer"
+	"LogSentry/internal/config"
+	"LogSentry/internal/parser"
+	"LogSentry/internal/writer"
 	"fmt"
 )
 
 func main() {
 
-	cfg, err := config.Loadconfig("config/config.json")
+	cfg, err := config.Loadconfig("internal/config/config.json")
 	if err != nil{
 		fmt.Println("Got Error ",err)
 		return 

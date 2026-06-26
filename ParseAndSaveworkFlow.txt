@@ -1,0 +1,30 @@
+                Log Directory
+                      │
+                      ▼
+              Directory Scanner
+                      │
+                      ▼
+                Worker Pool
+                      │
+                      ▼
+                Parser Engine
+                      │
+                      ▼
+                 Structured Logs
+                      │
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+   Dashboard     Analytics     Storage Layer
+                                      │
+                  ┌───────────────────┴───────────────────┐
+                  ▼                                       ▼
+            File Storage                         Database Storage
+                                                          │
+                                                          ▼
+                                                    Search Service
+                                                          │
+                                                          ▼
+                                                       REST API
+                                                          │
+                                                          ▼
+                                                       DevMind

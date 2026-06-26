@@ -1,7 +1,7 @@
 package dashboard
 
 import (
-	"LogSentry/models"
+	"LogSentry/internal/models"
 	"fmt"
 )
 
