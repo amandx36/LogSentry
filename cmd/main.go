@@ -5,6 +5,8 @@ import (
 	"LogSentry/internal/parser"
 	"LogSentry/internal/writer"
 	"fmt"
+	"LogSentry/internal/storage/postgres"
+	
 )
 
 func main() {
@@ -25,6 +27,17 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	db, err := postgres.Connect(cfg)
+    if err != nil {
+        panic(err) // Crash if the DB is offline
+    }
+    
+    // THIS is where the defer belongs! 
+    // It keeps the DB alive until the entire program finishes.
+    defer db.Close()
+
+
 
 	
 }
