@@ -28,3 +28,29 @@
                                                           │
                                                           ▼
                                                        DevMind
+
+Log Directory
+      │
+      ▼
+Directory Scanner
+      │
+      ▼
+Parser
+      │
+      ▼
+LogReport
+      │
+      ├────────► Dashboard (Current) {Has 2 Current Dashboard/ this one is Current Log Upload }
+      │
+      ├────────► File Storage
+      │
+      └────────► PostgreSQL
+
+# fOR Analytics
+                 PostgreSQL
+                      │
+                      ▼
+                 Analytics
+                      │
+                      ▼
+             Dashboard / REST API

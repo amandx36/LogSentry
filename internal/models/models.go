@@ -1,5 +1,7 @@
 package models
-
+import (
+	"time"
+)
 
 type DashBoardDetails struct{
 	TotalLogs int
@@ -42,3 +44,19 @@ type MonitringConfig struct {
 
 }
 
+// for analytics 
+type Analytics struct {
+    TotalLogs      int
+    TotalErrors    int
+    TotalWarns     int
+    TotalInfos     int
+    TotalUnknown   int
+
+    ErrorRate      float64
+    WarningRate    float64
+
+    TopSource      string
+    TopSourceCount int
+
+    GeneratedAt    time.Time
+}

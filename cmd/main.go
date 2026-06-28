@@ -8,6 +8,7 @@ import (
 	"LogSentry/internal/storage/postgres"
 	"LogSentry/internal/writer"
 	"fmt"
+	"LogSentry/internal/analytics"
 )
 
 func main() {
@@ -85,8 +86,14 @@ func main() {
 	} else {
 		fmt.Println("TOP 5 RECENT LOGS", recentLogs)
 	}
+	// getting the analytics 
 	
-	
+	Analytics , err   := analytics.GetAnalytics(db)
+	if err != nil {
+		fmt.Println("Got Error while loading the analytics",err)
+	}
+	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+	fmt.Println(Analytics)	
 
 
 }
