@@ -15,7 +15,7 @@ func main() {
 
 	cfg, err := config.Loadconfig("internal/config/config.json")
 	if err != nil{
-		fmt.Println("Got Error ",err)
+		fmt.Println("Got Error in config Loading ",err)
 		return 
 	}
 

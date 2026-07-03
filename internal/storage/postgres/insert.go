@@ -4,24 +4,25 @@ import (
 	"LogSentry/internal/models"
 	"database/sql"
 )
+// for single insert of logs 
 
-func insertEntry(db *sql.DB, log models.LogEntry) error {
-	query := `
-	INSERT INTO log_entries
-	(timestamp, category, source, details)
-	VALUES ($1, $2, $3, $4)
-	`
+// func insertEntry(db *sql.DB, log models.LogEntry) error {
+// 	query := `
+// 	INSERT INTO log_entries
+// 	(timestamp, category, source, details)
+// 	VALUES ($1, $2, $3, $4)
+// 	`
 
-	_, err := db.Exec(
-		query,
-		log.TimeStamp,
-		log.Category,
-		log.Source,
-		log.Details,
-	)
+// 	_, err := db.Exec(
+// 		query,
+// 		log.TimeStamp,
+// 		log.Category,
+// 		log.Source,
+// 		log.Details,
+// 	)
 
-	return err
-}
+// 	return err
+// }
 func InsertLogs(db *sql.DB, report models.LogReport) error {
 
 	if err := BatchInsert(db, report.Errors); err != nil {
