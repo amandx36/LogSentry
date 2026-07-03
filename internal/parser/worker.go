@@ -3,6 +3,7 @@ package parser
 import (
 	"LogSentry/internal/models"
 	"os"
+    "sync"
 )
 
 type Job struct {
@@ -19,8 +20,8 @@ type Result struct {
 // jobs <-chan Job      // Receive-only channel (reads from jobs)
 // results chan<- Result // Send-only channel (writes to results)
 
-func Worker(id int, jobs <-chan Job, results chan<- Result ) {
-
+func Worker(id int, jobs <-chan Job, results chan<- Result , wg *sync.WaitGroup)  {
+    wg.Done() 
 	for job := range jobs {
 
 		// Open the file

@@ -472,4 +472,9 @@ RACE DETECT   → go run -race                   find unsynced access
 
 ---
 
-Jab yahan tak clear ho jaye aur tum khud implement karna chaho, bol dena — main sirf **review aur guide** karunga, code tum likhoge. 💪
+Jab yahan tak clear ho jaye aur tum khud implement karna chaho, bol dena — main sirf **review aur guide** karunga, code tum likhoge. 
+Why defer wg.Done() instead of wg.Done()?
+
+Answer:
+
+defer wg.Done() ensures that the worker signals completion only after it has finished processing all jobs and is about to exit. Calling wg.Done() at the beginning would incorrectly mark the worker as finished while it is still processing jobs, which can lead to synchronization bugs such as sending on a closed channel.

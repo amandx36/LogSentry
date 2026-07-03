@@ -4,6 +4,7 @@ import (
 	"LogSentry/internal/config"
 	"LogSentry/internal/models"
 	"runtime"
+	"sync"
 	
 )
 
@@ -68,28 +69,38 @@ import (
 
 // Create Jobs Channel -> create Results Channel -> Start Workers -> Scanner sends Jobs -> Workers Parse Files -> Workers send Results -> MergeReports() -> Final Report
 
-func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails, error){
-	
-	
 
-numWorkers := runtime.NumCPU()  // return number of cpu core dude 
-	// buffer channel  for job holding 
+func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails, error) {
+
+	// Number of workers = Number of logical CPU cores
+	numWorkers := runtime.NumCPU()
+
+	// Channels
 	jobs := make(chan Job, numWorkers)
-	// buffer channel for results holding 
 	results := make(chan Result, numWorkers)
 
+	// WaitGroup
+	var wg sync.WaitGroup
+
 	// Start workers
-	for w := 1; w <= numWorkers; w++ {
-		go Worker(w, jobs, results)
+	wg.Add(numWorkers)
+	for i := 1; i <= numWorkers; i++ {
+		go Worker(i, jobs, results, &wg)
 	}
 
-	// Scan and send jobs
+	// Scanner sends jobs
 	jobCount, err := ScanAndSendJobs(cfg, jobs)
 	if err != nil {
 		return models.LogReport{}, models.DashBoardDetails{}, err
 	}
 
+	// Close results after every worker exits
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
 
+	// Final Report
 	finalReport := models.LogReport{
 		Counts: models.Counts{
 			"ERROR":   0,
@@ -99,25 +110,31 @@ numWorkers := runtime.NumCPU()  // return number of cpu core dude
 		},
 	}
 
+	// Receive all parsed reports
 	for i := 0; i < jobCount; i++ {
+
 		result := <-results
+
 		if result.Err != nil {
-			continue 
+			continue
 		}
+
 		MergeReports(&finalReport, result.Report)
 	}
 
-	myDash := models.DashBoardDetails{
+	
+	dashboard := models.DashBoardDetails{
 		Errors:  finalReport.Counts["ERROR"],
 		Warns:   finalReport.Counts["WARN"],
 		Infos:   finalReport.Counts["INFO"],
 		Unknown: finalReport.Counts["DEFAULT"],
-		TotalLogs: finalReport.Counts["ERROR"] +
-			finalReport.Counts["WARN"] +
-			finalReport.Counts["INFO"] +
-			finalReport.Counts["DEFAULT"],
 	}
 
-	return finalReport, myDash, nil
+	dashboard.TotalLogs =
+		dashboard.Errors +
+		dashboard.Warns +
+		dashboard.Infos +
+		dashboard.Unknown
 
+	return finalReport, dashboard, nil
 }
