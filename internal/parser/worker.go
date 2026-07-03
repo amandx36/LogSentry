@@ -21,7 +21,7 @@ type Result struct {
 // results chan<- Result // Send-only channel (writes to results)
 
 func Worker(id int, jobs <-chan Job, results chan<- Result , wg *sync.WaitGroup)  {
-    wg.Done() 
+    defer  wg.Done() 
 	for job := range jobs {
 
 		// Open the file
