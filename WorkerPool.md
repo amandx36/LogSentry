@@ -669,17 +669,18 @@ Dashboard
 
 # 17. Advantages
 
-✅ Faster
+ Faster
 
-✅ Better CPU utilization
+ Better CPU utilization
 
-✅ Scalable
+ Scalable
 
-✅ Easy to extend
+ Easy to extend
 
-✅ Production ready
+ Production ready
 
-✅ Industry standard
+
+ Industry standard
 
 ---
 
