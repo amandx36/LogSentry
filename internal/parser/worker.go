@@ -19,7 +19,7 @@ type Result struct {
 // jobs <-chan Job      // Receive-only channel (reads from jobs)
 // results chan<- Result // Send-only channel (writes to results)
 
-func Worker(id int, jobs <-chan Job, results chan<- Result) {
+func Worker(id int, jobs <-chan Job, results chan<- Result ) {
 
 	for job := range jobs {
 

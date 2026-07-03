@@ -5,14 +5,14 @@ import (
 	"os"
 	"strings"
 )
-func ScanAndSendJobs(cfg config.Config, jobs chan<- Job) error {
-
-// 	Directory->ReadDir() -> Send Jobs
+func ScanAndSendJobs(cfg config.Config, jobs chan<- Job) (int, error) {
 
 	files, err := os.ReadDir(cfg.InputDir)
 	if err != nil {
-		return err
+		return 0, err
 	}
+
+	count := 0
 
 	for _, value := range files {
 
@@ -24,8 +24,14 @@ func ScanAndSendJobs(cfg config.Config, jobs chan<- Job) error {
 			continue
 		}
 
-		jobs <- Job{FilePath: cfg.InputDir + "/" + value.Name()}
+		jobs <- Job{
+			FilePath: cfg.InputDir + "/" + value.Name(),
+		}
+
+		count++
 	}
+
 	close(jobs)
-	return nil
+
+	return count, nil
 }
