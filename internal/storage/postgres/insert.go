@@ -22,31 +22,22 @@ func insertEntry(db *sql.DB, log models.LogEntry) error {
 
 	return err
 }
-
 func InsertLogs(db *sql.DB, report models.LogReport) error {
 
-	for _, log := range report.Errors {
-		if err := insertEntry(db, log); err != nil {
-			return err
-		}
+	if err := BatchInsert(db, report.Errors); err != nil {
+		return err
 	}
 
-	for _, log := range report.Warns {
-		if err := insertEntry(db, log); err != nil {
-			return err
-		}
+	if err := BatchInsert(db, report.Warns); err != nil {
+		return err
 	}
 
-	for _, log := range report.Infos {
-		if err := insertEntry(db, log); err != nil {
-			return err
-		}
+	if err := BatchInsert(db, report.Infos); err != nil {
+		return err
 	}
 
-	for _, log := range report.Unknown {
-		if err := insertEntry(db, log); err != nil {
-			return err
-		}
+	if err := BatchInsert(db, report.Unknown); err != nil {
+		return err
 	}
 
 	return nil

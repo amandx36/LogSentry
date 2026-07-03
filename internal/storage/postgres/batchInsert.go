@@ -13,16 +13,24 @@ func BatchInsert(db *sql.DB, logs []models.LogEntry) error {
 		return nil
 	}
 
+	// Start Transaction
+	tx, err := db.Begin()
+	if err != nil {
+		return err
+	}
+
+	// Rollback if anything fails
+	defer tx.Rollback()
+
 	var (
-		values       []string
-		args         []interface{}
-		placeholder  = 1
+		values      []string
+		args        []interface{}
+		placeholder = 1
 	)
 
 	for _, log := range logs {
 
-		values = append(
-			values,
+		values = append(values,
 			fmt.Sprintf("($%d,$%d,$%d,$%d)",
 				placeholder,
 				placeholder+1,
@@ -31,8 +39,7 @@ func BatchInsert(db *sql.DB, logs []models.LogEntry) error {
 			),
 		)
 
-		args = append(
-			args,
+		args = append(args,
 			log.TimeStamp,
 			log.Category,
 			log.Source,
@@ -43,11 +50,16 @@ func BatchInsert(db *sql.DB, logs []models.LogEntry) error {
 	}
 
 	query := fmt.Sprintf(`
-		INSERT INTO log_entries
-		(timestamp, category, source, details)
-		VALUES %s
+	INSERT INTO log_entries
+	(timestamp, category, source, details)
+	VALUES %s
 	`, strings.Join(values, ","))
 
-	_, err := db.Exec(query, args...)
-	return err
+	_, err = tx.Exec(query, args...)
+	if err != nil {
+		return err
+	}
+
+	// Commit Transaction
+	return tx.Commit()
 }
