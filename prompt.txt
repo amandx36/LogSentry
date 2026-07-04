@@ -1,0 +1,91 @@
+You are a senior Go backend engineer.
+
+I recently refactored my Go project into a clean architecture and now many imports, package names, and references are broken.
+
+Your task is to repair the project WITHOUT changing any business logic.
+
+Requirements:
+
+1. Scan the entire repository.
+2. Fix every broken import.
+3. Update package declarations where necessary.
+4. Update all references caused by moving files.
+5. Keep every exported function name unchanged unless absolutely required.
+6. Remove unused imports.
+7. Add missing imports.
+8. Do NOT rewrite any algorithms.
+9. Do NOT modify parser logic, database logic, analytics logic, or search logic.
+10. Only repair package structure and compilation errors.
+
+Current architecture:
+
+cmd/
+    api/
+        main.go
+    worker/
+        main.go
+
+internal/
+    api/
+        handlers/
+        routes/
+        middleware/
+
+    config/
+
+    models/
+
+    parser/
+
+    repository/
+        postgres/
+
+    services/
+        analytics/
+        dashboard/
+        search/
+
+    writer/
+
+Expected architecture:
+
+HTTP Request
+      │
+      ▼
+Routes
+      │
+      ▼
+Handlers (Controllers)
+      │
+      ▼
+Services
+      │
+      ▼
+Repository
+      │
+      ▼
+Database
+
+Rules:
+
+- Preserve all functionality.
+- Do not move files unless necessary.
+- Do not rename packages unnecessarily.
+- Keep project idiomatic Go.
+- Run gofmt on all modified files.
+- Verify the project builds.
+
+After making changes execute:
+
+go fmt ./...
+go vet ./...
+go build ./...
+
+Continue fixing compile errors until go build ./... succeeds.
+
+At the end provide:
+
+- Files modified
+- Imports updated
+- Package declarations updated
+- Remaining manual fixes (if any)

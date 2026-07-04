@@ -1,0 +1,66 @@
+                  Log Directory
+                        │
+                        ▼
+                Directory Scanner
+                        │
+                        ▼
+                  Worker Pool
+                        │
+                        ▼
+                  Parser Engine
+                        │
+                        ▼
+                Structured Logs
+                        │
+        ┌───────────────┼────────────────┐
+        ▼               ▼                ▼
+   Dashboard      Analytics        Storage Layer
+                                         │
+                    ┌────────────────────┴──────────────────┐
+                    ▼                                       ▼
+              File Storage                         PostgreSQL
+                                                           │
+                                                           ▼
+                                                    Search Service
+                                                           │
+                                                           ▼
+                                                      REST API
+                                                           │
+                          ┌────────────────────────────────┼────────────────────────┐
+                          ▼                                ▼                        ▼
+                                                        Metrics                  Live Monitor
+                          │                                │                        │
+                          ▼                                ▼                        ▼
+                                                       Prometheus                fsnotify
+                          │                                │                        │
+                          └────────────────────────────────┼────────────────────────┘
+                                                           ▼
+                                                        Grafana
+                                                           │
+                                                           ▼
+
+Log Directory
+      │
+      ▼
+Directory Scanner
+      │
+      ▼
+Parser
+      │
+      ▼
+LogReport
+      │
+      ├────────► Dashboard (Current) {Has 2 Current Dashboard/ this one is Current Log Upload }
+      │
+      ├────────► File Storage
+      │
+      └────────► PostgreSQL
+
+# fOR Analytics
+                 PostgreSQL
+                      │
+                      ▼
+                 Analytics
+                      │
+                      ▼
+             Dashboard / REST API
