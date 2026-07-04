@@ -4,7 +4,8 @@ import (
 	"LogSentry/internal/models"
 	"database/sql"
 )
-// for single insert of logs 
+
+// for single insert of logs
 
 // func insertEntry(db *sql.DB, log models.LogEntry) error {
 // 	query := `
@@ -21,8 +22,8 @@ import (
 // 		log.Details,
 // 	)
 
-// 	return err
-// }
+//		return err
+//	}
 func InsertLogs(db *sql.DB, report models.LogReport) error {
 
 	if err := BatchInsert(db, report.Errors); err != nil {

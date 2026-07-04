@@ -1,5 +1,6 @@
 package search
-import(
+
+import (
 	"LogSentry/internal/models"
 	"database/sql"
 	"fmt"
@@ -16,8 +17,8 @@ func fetchLogs(db *sql.DB, query string, args ...any) ([]models.LogEntry, error)
 
 	for rows.Next() {
 		var log models.LogEntry
-		var id int 
-		
+		var id int
+
 		err := rows.Scan(&id, &log.TimeStamp, &log.Category, &log.Source, &log.Details)
 		if err != nil {
 			return nil, fmt.Errorf("failed to scan row: %w", err)
@@ -31,4 +32,3 @@ func fetchLogs(db *sql.DB, query string, args ...any) ([]models.LogEntry, error)
 
 	return logs, nil
 }
-

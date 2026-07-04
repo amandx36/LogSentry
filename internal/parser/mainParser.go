@@ -5,7 +5,6 @@ import (
 	"LogSentry/internal/models"
 	"runtime"
 	"sync"
-	
 )
 
 // Best for single file parsing and loading into the buffer
@@ -63,12 +62,10 @@ import (
 // 	return myLogs, myDash, nil
 // }
 
-
 // for concurrent parsing and loading into the buffer
-// WorkFlow 
+// WorkFlow
 
 // Create Jobs Channel -> create Results Channel -> Start Workers -> Scanner sends Jobs -> Workers Parse Files -> Workers send Results -> MergeReports() -> Final Report
-
 
 func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails, error) {
 
@@ -122,7 +119,6 @@ func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails
 		MergeReports(&finalReport, result.Report)
 	}
 
-	
 	dashboard := models.DashBoardDetails{
 		Errors:  finalReport.Counts["ERROR"],
 		Warns:   finalReport.Counts["WARN"],
@@ -132,9 +128,9 @@ func LoadingBuffer(cfg config.Config) (models.LogReport, models.DashBoardDetails
 
 	dashboard.TotalLogs =
 		dashboard.Errors +
-		dashboard.Warns +
-		dashboard.Infos +
-		dashboard.Unknown
+			dashboard.Warns +
+			dashboard.Infos +
+			dashboard.Unknown
 
 	return finalReport, dashboard, nil
 }

@@ -59,17 +59,16 @@ import (
 // 	return nil
 // }
 
-
-func ParseSingleFile(file *os.File) (models.LogReport, error){
-// 	Create LogReport ->Parse -> Fill Report -> Return Report
-myLogs := models.LogReport{
-    Counts: models.Counts{
-        "ERROR":   0,
-        "WARN":    0,
-        "INFO":    0,
-        "DEFAULT": 0,
-    },
-}
+func ParseSingleFile(file *os.File) (models.LogReport, error) {
+	// Create LogReport ->Parse -> Fill Report -> Return Report
+	myLogs := models.LogReport{
+		Counts: models.Counts{
+			"ERROR":   0,
+			"WARN":    0,
+			"INFO":    0,
+			"DEFAULT": 0,
+		},
+	}
 
 	scanner := bufio.NewScanner(file)
 

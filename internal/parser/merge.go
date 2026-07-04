@@ -4,7 +4,7 @@ import (
 	"LogSentry/internal/models"
 )
 
-func MergeReports(dst *models.LogReport, src models.LogReport){
+func MergeReports(dst *models.LogReport, src models.LogReport) {
 	dst.Errors = append(dst.Errors, src.Errors...)
 	dst.Warns = append(dst.Warns, src.Warns...)
 	dst.Infos = append(dst.Infos, src.Infos...)

@@ -5,6 +5,7 @@ import (
 	"os"
 	"strings"
 )
+
 func ScanAndSendJobs(cfg config.Config, jobs chan<- Job) (int, error) {
 
 	files, err := os.ReadDir(cfg.InputDir)

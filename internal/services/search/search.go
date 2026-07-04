@@ -3,7 +3,6 @@ package search
 import (
 	"LogSentry/internal/models"
 	"database/sql"
-	
 )
 
 func SearchByCategory(db *sql.DB, category string) ([]models.LogEntry, error) {
