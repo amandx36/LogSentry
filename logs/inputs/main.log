@@ -511,4 +511,7 @@ java.lang.NullPointerException: Cannot invoke method getTools() on null
 2026-06-24 13:21:57.119 INFO  [redis] Replica devmind-redis-replica:6380 synced (offset: 896870)
 2026-06-24 13:21:57.222 WARN  [postgres] Connection pool near limit: 93/100 connections active
 2026-06-24 13:21:57.767 WARN  [devmind-api] o.s.b.a.e.web.EndpointLinksResolver : Exposure of /actuator/env not recommended in production
-2026-06-24 13:21:57.794 WARN  [redis] Slow log entry: HGETALL devmind:agents:state took 297ms
+2026-06-24 13:21:57.794 WARN  [redis] Slow log entry: HGETALL devmind:agents:state took 297ms2026-07-05 22:00:00 ERROR [Redis] Connection timeout
+2026-07-05 22:00:00 ERROR [Redis] Connection timeout
+2026-07-05 22:00:00 ERROR [Redis] Connection timeout
+2026-07-05 22:00:00 ERROR [Redis] Connection timeout

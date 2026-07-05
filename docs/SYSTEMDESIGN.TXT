@@ -1,0 +1,50 @@
+                 Log Directory
+                       │
+                       ▼
+               Directory Watcher
+                  (fsnotify)
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+   CREATE Event                WRITE Event
+         │                           │
+         └─────────────┬─────────────┘
+                       ▼
+                Event Dispatcher
+                       │
+                       ▼
+                Offset Manager
+          (Track Last Read Position)
+                       │
+                       ▼
+             Read Newly Appended Data
+                       │
+                       ▼
+                 Worker Pool
+                       │
+                       ▼
+                 Parser Engine
+                       │
+                       ▼
+             Structured LogEntry
+                       │
+          ┌────────────┼───────────────┐
+          ▼            ▼               ▼
+     Dashboard    Analytics      Batch Storage
+                                         │
+                                         ▼
+                                    PostgreSQL
+                                         │
+              ┌──────────────────────────┼──────────────────────────┐
+              ▼                          ▼                          ▼
+       Search Engine             Metrics Exporter            Alert Engine
+              │                          │                          │
+              ▼                          ▼                          ▼
+          REST API                 Prometheus                 Slack/Email
+              │                          │
+              └──────────────┬───────────┘
+                             ▼
+                          Grafana
+                             │
+                             ▼
+                          DevMind

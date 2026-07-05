@@ -10,6 +10,7 @@ type Config struct {
 	OutputDir   string `json:"output_dir"`
 	BufferSize  int    `json:"buffer_size"`
 	DatabaseUrl string `json:"connectionString"`
+	
 }
 
 func Loadconfig(path string) (Config, error) {
