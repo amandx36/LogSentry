@@ -7,7 +7,7 @@ import (
 	"LogSentry/internal/config"
 )
 
-func StartMonitoring(cfg config.Config){
+func DirWatching(cfg config.Config){
 	
 
 	// has 2 channel 
