@@ -24,9 +24,10 @@ func main() {
 
 	api := gin.Default()
 
-	routes.HealthCheck(api)
-	routes.ApiVersion(api)
-	routes.DashBoard(api, db)
+	routes.HealthCheckEP(api)
+	routes.ApiVersionEP(api)
+	routes.DashBoardEP(api, db)
+	routes.SearchByCategoryEP(api,db)
 
 	if err := api.Run(":8080"); err != nil {
 		log.Fatal(err)

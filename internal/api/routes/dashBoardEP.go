@@ -8,6 +8,6 @@ import (
     "github.com/gin-gonic/gin"
 )
 
-func DashBoard(r *gin.Engine, db *sql.DB) {
+func DashBoardEP(r *gin.Engine, db *sql.DB) {
     r.GET("/dashboard", controller.GetDashboard(db))
 }
