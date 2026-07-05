@@ -28,6 +28,7 @@ func main() {
 	routes.ApiVersionEP(api)
 	routes.DashBoardEP(api, db)
 	routes.SearchByCategoryEP(api,db)
+	routes.SearchBySourceEP(api,db)
 
 	if err := api.Run(":8080"); err != nil {
 		log.Fatal(err)
