@@ -31,6 +31,7 @@ func main() {
 	routes.SearchBySourceEP(api,db)
 	routes.SearchByKeyWordsEP(api,db)
 	routes.GetRecentLogEP(api,db)
+	routes.SearchByDateEP(api, db)
 
 	if err := api.Run(":8080"); err != nil {
 		log.Fatal(err)
