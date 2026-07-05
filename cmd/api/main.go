@@ -6,7 +6,8 @@ import (
 func main() {
 	api := gin.Default()
 
-routes.RegisterRoutes(api)
+routes.HealthCheck(api)
+routes.ApiVersion(api)
 
 api.Run(":8080")
 }
