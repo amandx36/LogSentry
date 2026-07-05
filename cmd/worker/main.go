@@ -9,6 +9,7 @@ import (
 	"LogSentry/internal/services/search"
 	"LogSentry/internal/writer"
 	"fmt"
+	"LogSentry/internal/monitor"
 )
 
 func main() {
@@ -93,4 +94,9 @@ func main() {
 	fmt.Printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 	fmt.Println(Analytics)
 
+fmt.Println("Initial parsing completed.")
+fmt.Println(" Live Monitoring Started .  . . ")
+
+
+monitor.DirWatching(cfg, db)
 }

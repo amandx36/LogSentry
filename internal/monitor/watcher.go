@@ -48,7 +48,9 @@ func DirWatching(cfg config.Config ,db *sql.DB){
 					}
 					offsetManager.UpdateOffset(file, newOffset)
 					// now send the data for processing 
+					log.Println("Sending data to ProcessLogs")
 					ProcessLogs(data ,  db )
+					log.Println("Sending data to ProcessLogs")
 					log.Println("Modified file:", event.Name)
 				}
 			case err, ok := <-watcher.Errors:
@@ -66,4 +68,5 @@ func DirWatching(cfg config.Config ,db *sql.DB){
 	}
 
 	<-done	
+	log.Println("Sending data to ProcessLogs")
 }
