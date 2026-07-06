@@ -1,0 +1,18 @@
+                 Prometheus
+
+                  ▲      ▲
+
+                  │      │
+
+      :8080/metrics   :9091/metrics
+
+          ▲                ▲
+
+      Server Process    Worker Process
+
+          │                │
+
+      REST APIs       Watcher
+                      Parser
+                      DB Inserts
+                      Metrics.Inc()

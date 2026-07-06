@@ -1,6 +1,7 @@
 package postgres
 
 import (
+	"LogSentry/internal/metrics"
 	"LogSentry/internal/models"
 	"database/sql"
 	"fmt"
@@ -61,5 +62,10 @@ func BatchInsert(db *sql.DB, logs []models.LogEntry) error {
 	}
 
 	// Commit Transaction
-	return tx.Commit()
+	if err := tx.Commit(); err != nil {
+		return err
+	}
+
+	metrics.DBInsert.Add(float64(len(logs)))
+	return nil
 }

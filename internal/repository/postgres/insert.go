@@ -41,6 +41,5 @@ func InsertLogs(db *sql.DB, report models.LogReport) error {
 	if err := BatchInsert(db, report.Unknown); err != nil {
 		return err
 	}
-
 	return nil
 }

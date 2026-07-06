@@ -10,9 +10,20 @@ import (
 	"LogSentry/internal/writer"
 	"fmt"
 	"LogSentry/internal/monitor"
+	"net/http"
+	"log"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+
 )
 
 func main() {
+
+	go func() {
+	http.Handle("/metrics", promhttp.Handler())
+	log.Println("Worker metrics on :9091")
+	log.Fatal(http.ListenAndServe(":9091", nil))
+}()
+
 
 	cfg, err := config.Loadconfig("internal/config/config.json")
 	if err != nil {

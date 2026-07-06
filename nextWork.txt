@@ -1,0 +1,155 @@
+You are a senior Go backend engineer specializing in observability and Prometheus instrumentation.
+
+## Project Context
+
+This is a Go backend project named **LogSentry**.
+
+The project already contains a Prometheus metrics package located at:
+
+`internal/metrics/metrics.go`
+
+The following metrics already exist and MUST be reused. Do NOT create duplicate metrics.
+
+* LogsProcessed
+* ErrorLogs
+* WarnLogs
+* InfoLogs
+* UnknownLogs
+* DBInsert
+* WatcherEvents
+* ParserFailures
+* LiveEvents
+* ReadFailures
+* FilesProcessed
+* ActiveWorkers
+* ParseDuration
+
+## Your Task
+
+Analyze the ENTIRE repository and instrument it with Prometheus metrics.
+
+Do not blindly insert metrics.
+
+First understand the control flow and determine where each event actually occurs.
+
+Only instrument the code where the event originates.
+
+## Instrumentation Rules
+
+### Monitor package
+
+Locate filesystem watcher logic.
+
+Increment:
+
+* WatcherEvents whenever a filesystem event is received.
+* LiveEvents whenever a WRITE event is detected.
+* ReadFailures whenever ReadNewLogs() returns an error.
+
+Do not add parser or database metrics inside the monitor package.
+
+---
+
+### Parser package
+
+Find the file responsible for parsing log entries.
+
+For every successfully parsed log line:
+
+* LogsProcessed.Inc()
+
+Depending on category:
+
+* ERROR -> ErrorLogs.Inc()
+* WARN -> WarnLogs.Inc()
+* INFO -> InfoLogs.Inc()
+* default -> UnknownLogs.Inc()
+
+Whenever parsing fails:
+
+* ParserFailures.Inc()
+
+Measure parse duration using:
+
+* start := time.Now()
+* defer metrics.ParseDuration.Observe(time.Since(start).Seconds())
+
+---
+
+### Scanner
+
+Whenever a log file is discovered and scheduled for processing:
+
+* FilesProcessed.Inc()
+
+---
+
+### Worker Pool
+
+Whenever a worker starts processing:
+
+* ActiveWorkers.Inc()
+
+When the worker exits:
+
+* defer ActiveWorkers.Dec()
+
+Never allow the gauge to leak.
+
+---
+
+### PostgreSQL Repository
+
+Locate all successful INSERT operations.
+
+Increment:
+
+* DBInsert.Inc()
+
+If batch inserts know the inserted row count, use:
+
+DBInsert.Add(float64(insertedRows))
+
+instead of multiple Inc() calls.
+
+---
+
+### API
+
+Expose a Prometheus endpoint:
+
+GET /metrics
+
+using:
+
+promhttp.Handler()
+
+Do not modify existing APIs.
+
+Simply register the new endpoint.
+
+---
+
+## Constraints
+
+* Do NOT change business logic.
+* Do NOT change function signatures unless absolutely necessary.
+* Do NOT introduce breaking changes.
+* Do NOT remove existing code.
+* Preserve formatting and project structure.
+* Add only the required imports.
+* Remove unused imports if introduced.
+* Ensure the project compiles.
+
+## Deliverables
+
+1. Apply all required code changes.
+2. Explain every modified file.
+3. Explain why each metric was added there.
+4. Show a summary table listing:
+
+* File modified
+* Metric added
+* Reason
+
+Do not stop after the first file. Scan the entire repository and instrument every appropriate location.
