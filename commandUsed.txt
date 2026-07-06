@@ -1,0 +1,7 @@
+prometheus:)
+
+ docker run -d \\n  --name prometheus \\n  --network host \\n  -v "$(pwd)/configs/prometheus.yml:/etc/prometheus/prometheus.yml:ro" \\n  prom/prometheus
+ 9756  echo "$(date '+%Y-%m-%d %H:%M:%S') INFO Test Prometheus" >> logs/inputs/main.log
+
+
+grafana :) 
