@@ -1,4 +1,4 @@
-package main
+`package main
 
 import (
 	"LogSentry/internal/config"
@@ -111,3 +111,4 @@ fmt.Println(" Live Monitoring Started .  . . ")
 
 monitor.DirWatching(cfg, db)
 }
+`
