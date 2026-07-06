@@ -10,8 +10,8 @@ import (
 	"github.com/fsnotify/fsnotify"
 )
 
-func DirWatching(cfg config.Config, db *sql.DB) {
-	offsetManager := NewOffsetManager()
+func DirWatching(cfg config.Config, db *sql.DB, offsetManager *OffsetManager,) {
+
 
 	// has 2 channel
 	watcher, err := fsnotify.NewWatcher()
@@ -50,6 +50,10 @@ func DirWatching(cfg config.Config, db *sql.DB) {
 						continue
 					}
 					offsetManager.UpdateOffset(file, newOffset)
+					err = offsetManager.Save("internal/data/offset.json")
+					if err != nil {
+    							log.Println("Failed to save offsets:", err)
+						}
 					// now send the data for processing
 					log.Println("Sending data to ProcessLogs")
 					ProcessLogs(data, db)
