@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"LogSentry/internal/metrics"
 	"LogSentry/internal/models"
 	"os"
 	"sync"
@@ -19,6 +20,8 @@ type Result struct {
 // results chan<- Result // Send-only channel (writes to results)
 
 func Worker(id int, jobs <-chan Job, results chan<- Result, wg *sync.WaitGroup) {
+	metrics.ActiveWorkers.Inc()
+	defer metrics.ActiveWorkers.Dec()
 	defer wg.Done()
 	for job := range jobs {
 

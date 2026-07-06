@@ -1,14 +1,18 @@
 package parser
 
 import (
+	"LogSentry/internal/metrics"
 	"LogSentry/internal/models"
 	"bufio"
 	"bytes"
 	"regexp"
+	"time"
 )
 
-
 func ParseByte(file []byte) (models.LogReport, error) {
+	start := time.Now()
+	defer metrics.ParseDuration.Observe(time.Since(start).Seconds())
+
 	// Create LogReport ->Parse -> Fill Report -> Return Report
 	myLogs := models.LogReport{
 		Counts: models.Counts{
@@ -30,6 +34,7 @@ func ParseByte(file []byte) (models.LogReport, error) {
 		match := reg.FindStringSubmatch(line)
 
 		if match == nil {
+			metrics.ParserFailures.Inc()
 			continue
 		}
 
@@ -45,22 +50,27 @@ func ParseByte(file []byte) (models.LogReport, error) {
 		case "ERROR":
 			myLogs.Errors = append(myLogs.Errors, entry)
 			myLogs.Counts["ERROR"]++
+			recordParsedLogMetrics(entry.Category)
 
 		case "WARN":
 			myLogs.Warns = append(myLogs.Warns, entry)
 			myLogs.Counts["WARN"]++
+			recordParsedLogMetrics(entry.Category)
 
 		case "INFO":
 			myLogs.Infos = append(myLogs.Infos, entry)
 			myLogs.Counts["INFO"]++
+			recordParsedLogMetrics(entry.Category)
 
 		default:
 			myLogs.Unknown = append(myLogs.Unknown, entry)
 			myLogs.Counts["DEFAULT"]++
+			recordParsedLogMetrics(entry.Category)
 		}
 	}
 
 	if err := scanner.Err(); err != nil {
+		metrics.ParserFailures.Inc()
 		return models.LogReport{}, err
 	}
 

@@ -1,9 +1,11 @@
-package routes 
+package routes
 
 import (
 	"database/sql"
+
 	"github.com/gin-gonic/gin"
 )
+
 func RegestAllRoutes(rte *gin.Engine, db *sql.DB) {
 	SearchByDateEP(rte, db)
 	SearchBySourceEP(rte, db)
@@ -13,7 +15,6 @@ func RegestAllRoutes(rte *gin.Engine, db *sql.DB) {
 	DashBoardEP(rte, db)
 	HealthCheckEP(rte)
 	ApiVersionEP(rte)
-	SearchByCategoryEP(rte,db)
-	
-
+	SearchByCategoryEP(rte, db)
+	GetMatrixDetails(rte)
 }

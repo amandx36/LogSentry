@@ -2,6 +2,7 @@ package parser
 
 import (
 	"LogSentry/internal/config"
+	"LogSentry/internal/metrics"
 	"os"
 	"strings"
 )
@@ -28,7 +29,7 @@ func ScanAndSendJobs(cfg config.Config, jobs chan<- Job) (int, error) {
 		jobs <- Job{
 			FilePath: cfg.InputDir + "/" + value.Name(),
 		}
-
+		metrics.FilesProcessed.Inc()
 		count++
 	}
 

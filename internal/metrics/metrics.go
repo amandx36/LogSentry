@@ -1,6 +1,5 @@
 package metrics
 
-
 import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promauto"
@@ -75,10 +74,10 @@ var ReadFailures = promauto.NewCounter(
 	},
 )
 var FilesProcessed = promauto.NewCounter(
-    prometheus.CounterOpts{
-        Name: "files_processed_total",
-        Help: "Total log files processed",
-    },
+	prometheus.CounterOpts{
+		Name: "files_processed_total",
+		Help: "Total log files processed",
+	},
 )
 
 var ActiveWorkers = promauto.NewGauge(
