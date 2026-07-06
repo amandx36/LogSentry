@@ -7,6 +7,7 @@ import (
 	"LogSentry/internal/config"
 
 	"github.com/fsnotify/fsnotify"
+	"LogSentry/internal/metrics"
 )
 
 func DirWatching(cfg config.Config ,db *sql.DB){
@@ -34,8 +35,11 @@ func DirWatching(cfg config.Config ,db *sql.DB){
 					return
 				}
 				log.Println("Event:", event)
+				metrics.WatcherEvents.Inc()
 				if event.Op&fsnotify.Write == fsnotify.Write {
 					file := event.Name
+
+					metrics.LiveEvents.Inc()
 					
 					lastOffset := offsetManager.GetOffset(file)
 
@@ -43,6 +47,7 @@ func DirWatching(cfg config.Config ,db *sql.DB){
 
 					data, newOffset, err := ReadNewLogs(file, lastOffset)
 					if err != nil {
+						 metrics.ReadFailures.Inc()
 						log.Println("Error reading new logs:", err)
 						continue
 					}
