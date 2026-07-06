@@ -24,7 +24,10 @@ func main() {
 	log.Fatal(http.ListenAndServe(":9091", nil))
 }()
 
-
+	offsetManager, err := monitor.LoadOffsets("internal/data/data.json")
+if err != nil {
+	log.Fatal(err)
+}
 	cfg, err := config.Loadconfig("internal/config/config.json")
 	if err != nil {
 		fmt.Println("Got Error in config Loading ", err)
@@ -108,6 +111,6 @@ func main() {
 fmt.Println("Initial parsing completed.")
 fmt.Println(" Live Monitoring Started .  . . ")
 
-
-monitor.DirWatching(cfg, db)
+monitor.DirWatching(cfg, db, offsetManager)
 }
+
