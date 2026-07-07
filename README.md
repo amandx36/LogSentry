@@ -1551,7 +1551,7 @@ LogSentry demonstrates practical backend engineering concepts:
 
 ---
 
-## Why Recruiters Should Care
+## Why Someone  Should Care
 
 LogSentry demonstrates skills that map directly to backend, platform, infrastructure, and observability roles:
 
