@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
   db:
     image: postgres:17-alpine
-    container_name: logsentry-db
+    container_name: logsentry-DB
     restart: unless-stopped
     environment:
       POSTGRES_USER: admin
@@ -47,7 +45,7 @@ services:
 
   prometheus:
     image: prom/prometheus:latest
-    container_name: prometheus
+    container_name: Prometheus
     restart: unless-stopped
     depends_on:
       - server
@@ -65,7 +63,7 @@ services:
 
   grafana:
     image: grafana/grafana-oss:latest
-    container_name: grafana
+    container_name: Grafana
     restart: unless-stopped
     depends_on:
       - prometheus

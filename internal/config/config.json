@@ -2,7 +2,8 @@
     "output_dir": "logs/output/",
     "buffer_size": 4096,
     "input_dir": "logs/inputs",
-    "connectionString":"postgres://postgres:root@localhost:5432/logsentry?sslmode=disable"
+
+  "connectionString":"postgres://admin:admin@db:5432/logsentry?sslmode=disable"
     
 
 }
