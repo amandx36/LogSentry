@@ -34,6 +34,29 @@
 
 ---
 
+## The Problem
+
+Most log processing setups in real backend systems do one of these badly:
+- Reread entire log files on every check → wasted I/O, doesn't scale
+- Lose all progress on restart → duplicate or missing data
+- Parse sequentially → can't keep up with high log volume
+- Give zero visibility into their own health → you don't know if the pipeline itself is broken until logs go missing
+
+## The Solution
+
+LogSentry is a distributed log processing pipeline in Go that fixes each of these directly:
+
+| Problem | LogSentry's Fix |
+|---|---|
+| Rereading whole files | Persistent byte-offset tracking — only reads bytes appended since last read |
+| Lost progress on crash/restart | Offsets persisted to disk (JSON), so processing resumes exactly where it left off |
+| Slow sequential parsing | CPU-core-sized worker pool (goroutines + channels) parses files concurrently |
+| No visibility into pipeline health | Self-instrumented with Prometheus metrics + Grafana dashboards |
+| Manual setup pain | One-command Docker Compose stack: Postgres + API + worker + Prometheus + Grafana |
+
+In short: **it watches logs in real time, processes only new data, stores it queryable in Postgres, and exposes both the logs and its own operational health — all containerized.**
+
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
